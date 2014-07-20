@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+
+<h:head>
+
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+	<title>Plano de Governo - MS</title>
+	<meta name="description" content="" />
+	<meta name="viewport" content="width=device-width" />
+
+	<link rel="stylesheet" href="../../css/bootstrap.min.css" />
+	<style>
+	
+		body {
+			padding-top: 50px;
+			padding-bottom: 20px;
+		}
+		
+	</style>
+
+	<link rel="stylesheet" href="../../css/bootstrap-theme.min.css" />
+	<link rel="stylesheet" href="../../css/main.css" />
+
+	<script src="//www.google-analytics.com/ga.js"></script>
+	<script src="../../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+
+	<script
+		src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script src="../../js/vendor/jquery-1.9.1.min.js"></script>
+
+	<script src="../../js/vendor/bootstrap.min.js"></script>
+
+	<script src="../../js/plugins.js"></script>
+	<script src="../../js/main.js"></script>
+
+</h:head>
+<body>
+
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-12 column">
+
+				<ui:include src="../basic/head.xhtml" />
+
+				<div class="row clearfix">
+					<div class="col-md-12 column">
+						<ui:insert name="descritivoTitulo" />
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="col-md-4 column">
+
+						<p class="text-info">
+
+							<ui:insert name="informacao" />
+
+						</p>
+						<div class="row clearfix">
+							<div class="col-md-12 column">
+								<div class="media">
+									<ui:insert name="noticia" />
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-8 column">
+
+						<ui:insert name="tela" />
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

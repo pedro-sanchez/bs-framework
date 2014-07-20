@@ -1,0 +1,8 @@
+br/com/bs/fw/mb/MBGeneric.class
+br/com/bs/sistema/mb/MBEstado.class
+br/com/bs/sistema/mb/MBNoticia.class
+br/com/bs/webapp/menu/Menu.class
+br/com/bs/sistema/mb/MBUsuario.class
+br/com/bs/sistema/mb/MBSugestao.class
+br/com/bs/webapp/MeuManagedBean.class
+br/com/bs/sistema/mb/MBInformante.class

@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:tags="http://tags.com/facelets">
+
+	<h:column>
+		<f:facet name="header">
+		
+       		<h:outputText value="#{sortField}" style="display: none;" styleClass="sortField"/>  
+       		
+			<h:panelGroup layout="block" style="float: left; text-align: left;">
+       			<h:outputText value="#{msg[label]}" title="#{msg[titleHeader].concat('.')}" pt:data-toggle="tooltip"
+    			pt:data-placement="top" styleClass="outputText"/>     
+    		</h:panelGroup> 
+    		<h:panelGroup layout="block" styleClass="iconSort" style="float: right; text-align: right;" rendered="#{not empty sortField}">
+    			<span class="glyphicon glyphicon-sort"/>   
+    		</h:panelGroup>  		
+       	</f:facet>
+       	<h:outputText value="#{value}" title="#{msg[titleRow].concat('.')}" pt:data-toggle="tooltip"
+    		pt:data-placement="top" styleClass="outputText"/>      	
+    </h:column>
+
+</ui:composition>

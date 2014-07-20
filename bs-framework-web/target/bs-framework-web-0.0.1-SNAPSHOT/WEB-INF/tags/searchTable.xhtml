@@ -1,0 +1,52 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:tags="http://tags.com/facelets">
+
+	<h:panelGroup id="divSearchTable" layout="block"
+		styleClass="row clearfix" style="margin: auto; ">
+		<h:panelGroup layout="block" style="padding-bottom: 10px; max-width: 850px !important;">
+			
+			<h:panelGroup layout="block" styleClass="col-xs-4"
+				style="text-align: left !important; padding-right: 0px !important; padding-left: 0px !important; min-width: 85px !important; max-width: 150px !important;">
+				<h:selectOneMenu id="cmbFilterSelect"
+					value="#{mb.wrapper.selectedFilter}"
+					styleClass="form-control selectpicker" pt:data-toggle="tooltip"
+					pt:data-placement="top" 
+					title="#{msg['fw.search.selectFilter.tooltip'].concat('.')}"
+					pt:data-style="btn-primary">
+					<f:selectItems value="#{mb.wrapper.filters}" />
+				</h:selectOneMenu>
+			</h:panelGroup>
+			<h:panelGroup layout="block"
+				styleClass="input-group col-xs-8 form-inline"
+				style="padding-right: 0px !important; padding-left: 0px !important; ">
+	
+				<!-- /btn-group -->
+				<h:inputText styleClass="form-control" value="#{mb.wrapper.filter}"
+					pt:data-toggle="tooltip" pt:data-placement="top" pt:autofocus="true"
+					pt:placeholder="#{msg['fw.search.filter.placeholder'].concat('...')}"
+					title="#{msg['fw.search.filter.tooltip'].concat('.')}" />
+	
+				<h:panelGroup layout="block" styleClass="input-group-btn">
+					<h:commandLink id="btnSearch" styleClass="btn btn-primary"
+						action="#{mb.list}" pt:data-toggle="tooltip"
+						pt:data-placement="top"
+						title="#{msg['fw.search.doFilter.tooltip'].concat('.')}">
+	
+						<h:panelGroup styleClass="glyphicon glyphicon-search" />
+						<f:ajax execute="divSearchTable"
+							render="#{(not empty update)? update : 'divTable'}"
+							onevent="onPaginationComplete" />
+					</h:commandLink>
+				</h:panelGroup>
+	
+			</h:panelGroup>
+			<!-- /input-group -->
+		</h:panelGroup>
+	</h:panelGroup>
+	<!-- /.row -->
+
+</ui:composition>
