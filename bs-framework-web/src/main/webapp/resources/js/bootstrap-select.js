@@ -153,7 +153,7 @@
                 }
 
                 if (!$this.data('content')) {
-                    //Prbsend any icon and append any subtext to the main text.
+                    //Prepend any icon and append any subtext to the main text.
                     text = icon + '<span class="text">' + text + subtext + '</span>';
                 }
 
@@ -243,14 +243,14 @@
 
             //Fixes issue in IE10 occurring when no default option is selected and at least one option is disabled
             //Convert all the values into a comma delimited string
-            var title = !this.multiple ? selectedItems[0] : selectedItems.join(this.options.multipleSbsarator);
+            var title = !this.multiple ? selectedItems[0] : selectedItems.join(this.options.multipleSeparator);
 
             //If this is multi select, and the selectText type is count, the show 1 of 2 selected etc..
             if (this.multiple && this.options.selectedTextFormat.indexOf('count') > -1) {
                 var max = this.options.selectedTextFormat.split('>');
                 var notDisabled = this.options.hideDisabled ? ':not([disabled])' : '';
                 if ( (max.length>1 && selectedItems.length > max[1]) || (max.length==1 && selectedItems.length>=2)) {
-                    title = this.options.countSelectedText.rbslace('{0}', selectedItems.length).rbslace('{1}', this.$element.find('option:not([data-divider="true"]):not([data-hidden="true"])'+notDisabled).length);
+                    title = this.options.countSelectedText.replace('{0}', selectedItems.length).replace('{1}', this.$element.find('option:not([data-divider="true"]):not([data-hidden="true"])'+notDisabled).length);
                 }
              }
             
@@ -267,7 +267,7 @@
 
         setStyle: function(style, status) {
             if (this.$element.attr('class')) {
-                this.$newElement.addClass(this.$element.attr('class').rbslace(/selectpicker|mobile-device/gi, ''));
+                this.$newElement.addClass(this.$element.attr('class').replace(/selectpicker|mobile-device/gi, ''));
             }
 
             var buttonClass = style ? style : this.options.style;
@@ -406,7 +406,7 @@
                 pos,
                 actualHeight,
                 getPlacement = function($element) {
-                    $drop.addClass($element.attr('class').rbslace(/form-control/gi, '')).toggleClass('dropup', $element.hasClass('dropup'));
+                    $drop.addClass($element.attr('class').replace(/form-control/gi, '')).toggleClass('dropup', $element.hasClass('dropup'));
                     pos = $element.offset();
                     actualHeight = $element.hasClass('dropup') ? 0 : $element[0].offsetHeight;
                     $drop.css({'top' : pos.top + actualHeight, 'left' : pos.left, 'width' : $element[0].offsetWidth, 'position' : 'absolute'});
@@ -554,15 +554,15 @@
                             var maxReached = maxOptions < $options.filter(':selected').length,
                                 maxReachedGrp = maxOptionsGrp < $optgroup.find('option:selected').length,
                                 maxOptionsArr = that.options.maxOptionsText,
-                                maxTxt = maxOptionsArr[0].rbslace('{n}', maxOptions),
-                                maxTxtGrp = maxOptionsArr[1].rbslace('{n}', maxOptionsGrp),
+                                maxTxt = maxOptionsArr[0].replace('{n}', maxOptions),
+                                maxTxtGrp = maxOptionsArr[1].replace('{n}', maxOptionsGrp),
                                 $notify = $('<div class="notify"></div>');
                             
                             if ((maxOptions && maxReached) || (maxOptionsGrp && maxReachedGrp)) {                                
-                                // If {var} is set in array, rbslace it
+                                // If {var} is set in array, replace it
                                 if (maxOptionsArr[2]) {
-                                    maxTxt = maxTxt.rbslace('{var}', maxOptionsArr[2][maxOptions > 1 ? 0 : 1]);
-                                    maxTxtGrp = maxTxtGrp.rbslace('{var}', maxOptionsArr[2][maxOptionsGrp > 1 ? 0 : 1]);
+                                    maxTxt = maxTxt.replace('{var}', maxOptionsArr[2][maxOptions > 1 ? 0 : 1]);
+                                    maxTxtGrp = maxTxtGrp.replace('{var}', maxOptionsArr[2][maxOptionsGrp > 1 ? 0 : 1]);
                                 }
     
                                 $option.prop('selected', false);
@@ -958,7 +958,7 @@
         header: false,
         liveSearch: false,
         actionsBox: false,
-        multipleSbsarator: ', ',
+        multipleSeparator: ', ',
         iconBase: 'glyphicon',
         tickIcon: 'glyphicon-ok',
         maxOptions: false

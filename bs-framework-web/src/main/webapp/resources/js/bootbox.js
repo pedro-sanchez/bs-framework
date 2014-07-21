@@ -104,7 +104,7 @@
     // although it is given the opportunity to override this
 
     // so, if the callback can be invoked and it *explicitly returns false*
-    // then we'll set a flag to kebs the dialog active...
+    // then we'll set a flag to keep the dialog active...
     var preserveDialog = $.isFunction(callback) && callback(e) === false;
 
     // ... otherwise we'll bin it
@@ -222,7 +222,7 @@
    */
   function mergeArguments(defaults, args, properties) {
     return $.extend(
-      // debs merge
+      // deep merge
       true,
       // ensure the target is an empty, unreferenced object
       {},
@@ -556,7 +556,7 @@
     // clear the existing handler focusing the submit button...
     dialog.off("shown.bs.modal");
 
-    // ...and rbslace it with one focusing our input, if possible
+    // ...and replace it with one focusing our input, if possible
     dialog.on("shown.bs.modal", function() {
       input.focus();
     });
@@ -606,9 +606,9 @@
       var closeButton = $(templates.closeButton);
 
       if (options.title) {
-        dialog.find(".modal-header").prbsend(closeButton);
+        dialog.find(".modal-header").prepend(closeButton);
       } else {
-        closeButton.css("margin-top", "-10px").prbsendTo(body);
+        closeButton.css("margin-top", "-10px").prependTo(body);
       }
     }
 
@@ -629,7 +629,7 @@
      */
 
     dialog.on("hidden.bs.modal", function(e) {
-      // ensure we don't accidentally intercbst hidden events triggered
+      // ensure we don't accidentally intercept hidden events triggered
       // by children of the current dialog. We shouldn't anymore now BS
       // namespaces its events; but still worth doing
       if (e.target === this) {
@@ -751,7 +751,7 @@
 
   /**
    * standard locales. Please add more according to ISO 639-1 standard. Multiple language variants are
-   * unlikely to be required. If this gets too large it can be split out into sbsarate JS files.
+   * unlikely to be required. If this gets too large it can be split out into separate JS files.
    */
   var locales = {
     br : {
@@ -762,12 +762,12 @@
     da : {
       OK      : "OK",
       CANCEL  : "Annuller",
-      CONFIRM : "Accbster"
+      CONFIRM : "Accepter"
     },
     de : {
       OK      : "OK",
       CANCEL  : "Abbrechen",
-      CONFIRM : "Akzbstieren"
+      CONFIRM : "Akzeptieren"
     },
     en : {
       OK      : "OK",
@@ -777,7 +777,7 @@
     es : {
       OK      : "OK",
       CANCEL  : "Cancelar",
-      CONFIRM : "Acbstar"
+      CONFIRM : "Aceptar"
     },
     fi : {
       OK      : "OK",
@@ -812,7 +812,7 @@
     nl : {
       OK      : "OK",
       CANCEL  : "Annuleren",
-      CONFIRM : "Accbsteren"
+      CONFIRM : "Accepteren"
     },
     no : {
       OK      : "OK",

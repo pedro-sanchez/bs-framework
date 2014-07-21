@@ -2541,7 +2541,7 @@ input[type="button"].btn-block {
   content: "\e029";
 }
 
-.glyphicon-rbseat:before {
+.glyphicon-repeat:before {
   content: "\e030";
 }
 
@@ -2681,7 +2681,7 @@ input[type="button"].btn-block {
   content: "\e068";
 }
 
-.glyphicon-stbs-backward:before {
+.glyphicon-step-backward:before {
   content: "\e069";
 }
 
@@ -2713,7 +2713,7 @@ input[type="button"].btn-block {
   content: "\e076";
 }
 
-.glyphicon-stbs-forward:before {
+.glyphicon-step-forward:before {
   content: "\e077";
 }
 
@@ -3605,7 +3605,7 @@ input[type="button"].btn-block {
 .btn-group-justified {
   display: table;
   width: 100%;
-  border-collapse: sbsarate;
+  border-collapse: separate;
   table-layout: fixed;
 }
 
@@ -3623,7 +3623,7 @@ input[type="button"].btn-block {
 .input-group {
   position: relative;
   display: table;
-  border-collapse: sbsarate;
+  border-collapse: separate;
 }
 
 .input-group.col {
@@ -6075,7 +6075,7 @@ body.modal-open,
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.5) 0), color-stop(rgba(0, 0, 0, 0.0001) 100%));
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.5) 0, rgba(0, 0, 0, 0.0001) 100%);
-  background-rbseat: rbseat-x;
+  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#80000000', endColorstr='#00000000', GradientType=1);
 }
 
@@ -6086,7 +6086,7 @@ body.modal-open,
   background-image: -webkit-linear-gradient(left, color-stop(rgba(0, 0, 0, 0.0001) 0), color-stop(rgba(0, 0, 0, 0.5) 100%));
   background-image: -moz-linear-gradient(left, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
   background-image: linear-gradient(to right, rgba(0, 0, 0, 0.0001) 0, rgba(0, 0, 0, 0.5) 100%);
-  background-rbseat: rbseat-x;
+  background-repeat: repeat-x;
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00000000', endColorstr='#80000000', GradientType=1);
 }
 

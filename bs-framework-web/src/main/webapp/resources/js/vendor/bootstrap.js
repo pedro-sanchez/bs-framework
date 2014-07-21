@@ -12,7 +12,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2013 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -69,7 +69,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2013 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -98,7 +98,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.rbslace(/.*(?=#[^\s]*$)/, '') // strip for ie7
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') // strip for ie7
     }
 
     var $parent = $(selector)
@@ -168,7 +168,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2013 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -278,7 +278,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -466,7 +466,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
   $(document).on('click.bs.carousel.data-api', '[data-slide], [data-slide-to]', function (e) {
     var $this   = $(this), href
-    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.rbslace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+    var $target = $($this.attr('data-target') || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
     var options = $.extend({}, $target.data(), $this.data())
     var slideIndex = $this.attr('data-slide-to')
     if (slideIndex) options.interval = false
@@ -496,7 +496,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -652,7 +652,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     var $this   = $(this), href
     var target  = $this.attr('data-target')
         || e.preventDefault()
-        || (href = $this.attr('href')) && href.rbslace(/.*(?=#[^\s]+$)/, '') //strip for ie7
+        || (href = $this.attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '') //strip for ie7
     var $target = $(target)
     var data    = $target.data('bs.collapse')
     var option  = data ? 'toggle' : $this.data()
@@ -676,7 +676,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -777,7 +777,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && /#/.test(selector) && selector.rbslace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector && /#/.test(selector) && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
     }
 
     var $parent = selector && $(selector)
@@ -831,7 +831,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1053,7 +1053,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   $(document).on('click.bs.modal.data-api', '[data-toggle="modal"]', function (e) {
     var $this   = $(this)
     var href    = $this.attr('href')
-    var $target = $($this.attr('data-target') || (href && href.rbslace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
+    var $target = $($this.attr('data-target') || (href && href.replace(/.*(?=#[^\s]+$)/, ''))) //strip for ie7
     var option  = $target.data('modal') ? 'toggle' : $.extend({ remote: !/#/.test(href) && href }, $target.data(), $this.data())
 
     e.preventDefault()
@@ -1079,7 +1079,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1225,7 +1225,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
       var autoToken = /\s?auto?\s?/i
       var autoPlace = autoToken.test(placement)
-      if (autoPlace) placement = placement.rbslace(autoToken, '') || 'top'
+      if (autoPlace) placement = placement.replace(autoToken, '') || 'top'
 
       $tip
         .detach()
@@ -1266,7 +1266,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
   }
 
   Tooltip.prototype.applyPlacement = function(offset, placement) {
-    var rbslace
+    var replace
     var $tip   = this.tip()
     var width  = $tip[0].offsetWidth
     var height = $tip[0].offsetHeight
@@ -1291,7 +1291,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     var actualHeight = $tip[0].offsetHeight
 
     if (placement == 'top' && actualHeight != height) {
-      rbslace = true
+      replace = true
       offset.top = offset.top + height - actualHeight
     }
 
@@ -1308,15 +1308,15 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
         actualHeight = $tip[0].offsetHeight
       }
 
-      this.rbslaceArrow(delta - width + actualWidth, actualWidth, 'left')
+      this.replaceArrow(delta - width + actualWidth, actualWidth, 'left')
     } else {
-      this.rbslaceArrow(actualHeight - height, actualHeight, 'top')
+      this.replaceArrow(actualHeight - height, actualHeight, 'top')
     }
 
-    if (rbslace) $tip.offset(offset)
+    if (replace) $tip.offset(offset)
   }
 
-  Tooltip.prototype.rbslaceArrow = function(delta, dimension, position) {
+  Tooltip.prototype.replaceArrow = function(delta, dimension, position) {
     this.arrow().css(position, delta ? (50 * (1 - delta / dimension) + "%") : '')
   }
 
@@ -1465,7 +1465,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1518,7 +1518,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     $tip.removeClass('fade top bottom left right in')
 
-    // IE8 doesn't accbst hiding via the `:empty` pseudo selector, we have to do
+    // IE8 doesn't accept hiding via the `:empty` pseudo selector, we have to do
     // this manually by checking the contents.
     if (!$tip.find('.popover-title').html()) $tip.find('.popover-title').hide()
   }
@@ -1583,7 +1583,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1610,7 +1610,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
     this.$scrollElement = this.$element.on('scroll.bs.scroll-spy.data-api', process)
     this.options        = $.extend({}, ScrollSpy.DEFAULTS, options)
     this.selector       = (this.options.target
-      || ((href = $(element).attr('href')) && href.rbslace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
+      || ((href = $(element).attr('href')) && href.replace(/.*(?=#[^\s]+$)/, '')) //strip for ie7
       || '') + ' .nav li > a'
     this.offsets        = $([])
     this.targets        = $([])
@@ -1742,7 +1742,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0
@@ -1771,7 +1771,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
 
     if (!selector) {
       selector = $this.attr('href')
-      selector = selector && selector.rbslace(/.*(?=#[^\s]*$)/, '') //strip for ie7
+      selector = selector && selector.replace(/.*(?=#[^\s]*$)/, '') //strip for ie7
     }
 
     if ($this.parent('li').hasClass('active')) return
@@ -1878,7 +1878,7 @@ if (!jQuery) { throw new Error("Bootstrap requires jQuery") }
  * Copyright 2012 Twitter, Inc.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file excbst in compliance with the License.
+ * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
  *
  * http://www.apache.org/licenses/LICENSE-2.0

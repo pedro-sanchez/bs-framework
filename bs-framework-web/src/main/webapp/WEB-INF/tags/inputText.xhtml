@@ -8,11 +8,11 @@
   	<tags:input label="#{msg[label].concat(':')}" id="#{id}" rendered="#{rendered}" required="#{required}">
   		<h:inputText id="#{id}" styleClass="form-control" 
   			value="#{value}" 
-    		title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.rbslace(':','').toLowerCase()).concat('.')}" 
+    		title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.replace(':','').toLowerCase()).concat('.')}" 
     		rendered="#{(empty rendered or rendered)}" 
     		pt:required="#{required}"  		
 			disabled="#{not empty disabled and disabled}"
-    		pt:data-requiredMessage="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.rbslace(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"
+    		pt:data-requiredMessage="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replace(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"
   			pt:data-toggle="tooltip"
     		pt:data-placement="top"  
     		pt:autofocus="#{autofocus}"
