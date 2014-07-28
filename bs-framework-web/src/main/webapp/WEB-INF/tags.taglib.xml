@@ -109,6 +109,26 @@
 	</tag>
 
 	<tag>
+		<tag-name>menuBar</tag-name>
+		<source>tags/menuBar.xhtml</source>
+	</tag>
+
+	<tag>
+		<tag-name>menuNode</tag-name>
+		<source>tags/menuNode.xhtml</source>
+	</tag>
+	
+	<tag>
+		<tag-name>menuSubNode</tag-name>
+		<source>tags/menuSubNode.xhtml</source>
+	</tag>
+
+	<tag>
+		<tag-name>menuItem</tag-name>
+		<source>tags/menuItem.xhtml</source>
+	</tag>
+
+	<tag>
 		<tag-name>inputText</tag-name>
 		<source>tags/inputText.xhtml</source>
 		<attribute>

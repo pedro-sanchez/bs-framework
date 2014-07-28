@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"	
+	xmlns:tags="http://tags.com/facelets">
+	
+	<li class="dropdown-submenu">
+    	 <a href="#" class="dropdown-toggle" data-toggle="dropdown">    	 	
+			<h:outputLabel value="#{subMenu.label}"/>
+			<!-- <h:panelGroup styleClass="caret"/> -->
+    	 </a>
+	         
+	   		<ul class="dropdown-menu">
+	     		<c:forEach var="item" items="#{subMenu.itens}">
+					<c:if test="#{empty item.itens}">
+						<tags:menuItem menu="#{item}" mb="#{mb}"/>
+					</c:if> 
+					<c:if test="#{not empty item.itens}">
+						<tags:menuSubNode subMenu="#{item}" mb="#{mb}"/>
+					</c:if>   	
+		   		</c:forEach>
+	   		</ul>
+   	</li>
+	
+				   
+</ui:composition>

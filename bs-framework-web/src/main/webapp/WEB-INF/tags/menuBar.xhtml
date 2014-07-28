@@ -1,0 +1,15 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"	
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"	
+	xmlns:tags="http://tags.com/facelets">
+	
+	<ul class="nav navbar-nav">
+		<c:forEach var="menu" items="#{mb.menuItem}">		
+			<tags:menuNode id="#{menu.role}" menu="#{menu}" mb="#{mb}"/>
+		</c:forEach>
+    </ul>
+				   
+</ui:composition>
