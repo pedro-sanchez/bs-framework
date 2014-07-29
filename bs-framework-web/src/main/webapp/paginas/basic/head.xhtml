@@ -20,8 +20,16 @@
 			
 			<h:panelGroup layout="block" styleClass="navbar-collapse collapse">
 				<h:form styleClass="navbar-form navbar-left" prependId="false" >
+					<h:commandButton id="btnUpdateStage" style="display: none">		
+						<f:ajax execute="@form" 
+								render="@this :stage" onevent="onStageComplete" />
+					</h:commandButton>
+					<h:inputHidden id="selectedPage" value="#{mbSession.currentPage}"/>
+		
+				
 				</h:form>
-					<tags:menuBar mb="#{mbSession}"/>
+					
+				<tags:menuBar mb="#{mbSession}"/>
 				
 			</h:panelGroup>
 

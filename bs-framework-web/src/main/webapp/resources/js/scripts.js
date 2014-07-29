@@ -1,3 +1,17 @@
+
+function openWindow(uri) {
+	$('[id*="selectedPage"]').val(uri);
+	$('[id*="btnUpdateStage"]').click();
+	return false;
+}
+
+function onStageComplete(data) {
+	if (data.status == "success") {
+		onOpenWindow();
+		return false;
+	}
+}
+
 function openModal(modalName) {
 	$('#' + modalName).modal('show');
 	toolTipStart();
@@ -131,13 +145,18 @@ function selectPicker() {
 }
 
 $(document).ready(function($) {
+	onOpenWindow();
+	return false;
+});
+
+function onOpenWindow(){
 	selectRowGrid();
 	orderGrid();
 	readyMessage();
 	toolTipStart();
 	selectPicker();
 	return false;
-});
+}
 
 function confirmDialog(title, message, yes, yesTitle, no, noTitle, yesLinkID,
 		noLinkID) {

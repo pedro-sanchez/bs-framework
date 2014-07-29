@@ -40,8 +40,8 @@ body {
 	
 	<h:panelGroup layout="block" styleClass="container stage-system">
 		<h:panelGroup layout="block" styleClass="row">			
-			<h:panelGroup layout="block" styleClass="col-md-12">
-				<ui:include src="paginas/estado/estadoList.xhtml"/>
+			<h:panelGroup id="stage" layout="block" styleClass="col-md-12">
+				<ui:include src="#{mbSession.currentPage}"/>
 			</h:panelGroup>
 		</h:panelGroup>
 	</h:panelGroup>

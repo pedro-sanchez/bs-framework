@@ -15,6 +15,8 @@ import br.com.bs.fw.util.Menu;
 public class MBSession {
 	private List<Menu> menuItem = new ArrayList<>();
 	
+	private String currentPage = "paginas/home.xhtml";
+	
 	protected void buildMenu(Menu...menuItem){
 		this.menuItem.clear();
 		if(menuItem != null){
@@ -52,6 +54,14 @@ public class MBSession {
 
 	public void setMenuItem(List<Menu> menuItem) {
 		this.menuItem = menuItem;
+	}
+
+	public String getCurrentPage() {
+		return currentPage;
+	}
+
+	public void setCurrentPage(String currentPage) {
+		this.currentPage = currentPage;
 	}
 
 	
