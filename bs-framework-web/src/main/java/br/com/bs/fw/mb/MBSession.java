@@ -1,4 +1,4 @@
-package br.com.bs.sistema.mb;
+package br.com.bs.fw.mb;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -34,9 +34,9 @@ public class MBSession {
 		buildMenu(
 			new Menu("MENU_TABELA","Tabela")
 				.add(new Menu("MENU_ENDERECO", "Endereço", "", "/resources/img/endereco.png")
-					.add(new Menu("MENU_ITEM_PAIS", "País", "paginas/estado/estadoList.xhtml"),
+					.add(new Menu("MENU_ITEM_PAIS", "País", "paginas/usuario/usuarioList.xhtml"),
 						 new Menu("MENU_ITEM_ESTADO", "Estado", "paginas/estado/estadoList.xhtml"),
-						 new Menu("MENU_ITEM_CIDADE", "Cidade", "paginas/estado/estadoList.xhtml"))
+						 new Menu("MENU_ITEM_CIDADE", "Cidade", "paginas/home.xhtml"))
 				),
 			new Menu("MENU_SISTEMA", "Sistema")
 			.add(new Menu("MENU_ITEM_USUARIO", "Usuario", "paginas/usuario/usuarioList.xhtml")));

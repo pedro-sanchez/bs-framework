@@ -10,21 +10,16 @@ import br.com.bs.fw.entity.iface.IEntity;
 import br.com.bs.fw.repository.iface.IGenericDAO;
 import br.com.bs.fw.util.DaoFactory;
 import br.com.bs.fw.util.PaginationResult;
+import br.com.bs.fw.util.ReflectionUtil;
 
-public class GenericBO<T extends IEntity> implements IGenericBO<T>{
+public class GenericBO<T extends IEntity, DAO extends IGenericDAO<T>> implements IGenericBO<T>{
 	
 	@PersistenceContext(unitName = "BASIC-PU")
 	private EntityManager em;
 	
-	private Class<? extends IGenericDAO<T>> clazzDAO;
-
-	public GenericBO(Class<? extends IGenericDAO<T>> clazzDAO) {
-		this.clazzDAO = clazzDAO;
-	}
-	
 	@SuppressWarnings("unchecked")
-	protected IGenericDAO<T> getDao(){		
-		return (IGenericDAO<T>) DaoFactory.getDaoInstance(clazzDAO, em);
+	protected DAO getDao(){			
+		return (DAO) DaoFactory.getDaoInstance((Class<? extends IGenericDAO<?>>) ReflectionUtil.getGenericClass(getClass(), 1), em);		
 	}
 
 	@Override

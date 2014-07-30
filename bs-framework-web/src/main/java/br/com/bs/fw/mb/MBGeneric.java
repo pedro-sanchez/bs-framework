@@ -14,10 +14,10 @@ import br.com.bs.fw.util.GenericWrapper;
 import br.com.bs.fw.util.PaginationResult;
 import br.com.bs.fw.util.ReflectionUtil;
 
-public abstract class MBGeneric<T extends IEntity> implements Serializable {
+public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	private IGenericBO<T> bo;
+	private S bo;
 
 	private PaginationResult<T> paginationResult;
 
@@ -144,11 +144,11 @@ public abstract class MBGeneric<T extends IEntity> implements Serializable {
 		this.entity = entity;
 	}
 
-	public IGenericBO<T> getBo() {
+	public S getBo() {
 		return bo;
 	}
 
-	public void setBo(IGenericBO<T> bo) {
+	public void setBo(S bo) {
 		this.bo = bo;
 	}
 

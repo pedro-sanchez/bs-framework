@@ -13,7 +13,7 @@ import br.com.bs.sistema.wrapper.EstadoWrapper;
 
 @ManagedBean(name="mbEstado")
 @ViewScoped
-public class MBEstado extends MBGeneric<Estado> implements Serializable{
+public class MBEstado extends MBGeneric<Estado, IEstadoBO> implements Serializable{
 
 	private static final long serialVersionUID = -2433515164743414832L;
 	

@@ -10,8 +10,6 @@ import br.com.bs.sistema.repository.impl.EstadoDAO;
 
 @Stateless
 @Local
-public class EstadoBO extends GenericBO<Estado> implements IEstadoBO {
-	public EstadoBO() {
-		super(EstadoDAO.class);		
-	}	
+public class EstadoBO extends GenericBO<Estado, EstadoDAO> implements IEstadoBO {
+		
 }

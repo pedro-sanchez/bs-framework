@@ -14,12 +14,16 @@ public class ReflectionUtil {
 	public static Class<?> getTClass(Object object){
 		return getTClass(object.getClass());
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	public static Class<? extends IEntity> getTClass(Class<?> clazz){
+		return (Class<? extends IEntity>) getGenericClass(clazz, 0);
+	}
+
+	public static Class<?> getGenericClass(Class<?> clazz, Integer genericIndex){
 		try{
 			Type[] types = ((ParameterizedType)clazz.getGenericSuperclass()).getActualTypeArguments();			
-			return (Class<? extends IEntity>) types[0];
+			return (Class<?>) types[genericIndex];
 		}
 		catch(Exception e){
 			return null;
