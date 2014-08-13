@@ -2,7 +2,10 @@
     <wb-module deploy-name="bs-framework-ear-0.0.1-SNAPSHOT">
         <wb-resource deploy-path="/" source-path="/target/m2e-wtp/ear-resources"/>
         <wb-resource deploy-path="/" source-path="/src/main/application" tag="defaultRootSource"/>
-        <dependent-module archiveName="bs-framework-web-0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/bs-framework-web/bs-framework-web">
+        <dependent-module archiveName="bs-framework-web-0.0.0.1-SNAPSHOT.war" deploy-path="/" handle="module:/resource/bs-framework-web/bs-framework-web">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bs-framework-ejb-0.0.0.1-SNAPSHOT.jar" deploy-path="/" handle="module:/resource/bs-framework-ejb/bs-framework-ejb">
             <dependency-type>uses</dependency-type>
         </dependent-module>
     </wb-module>

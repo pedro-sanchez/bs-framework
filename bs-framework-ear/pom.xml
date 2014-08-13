@@ -1,54 +1,59 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>br.com.bs</groupId>
     <artifactId>bs-framework-ear</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
     <packaging>ear</packaging>
-    <name>bs-framework-ear</name>
-    
+
     <parent>
-        <artifactId>bs-framework</artifactId>
         <groupId>br.com.bs</groupId>
-        <version>0.0.1-SNAPSHOT</version>
+        <artifactId>bs-framework</artifactId>
+        <version>0.0.0.1-SNAPSHOT</version>
     </parent>
 
 
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <build>
+            <finalName>bs-framework</finalName>
+            <plugins>
+                <!--Ear plugin -creating the ear - watch out skinny WARS!-->
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-ear-plugin</artifactId>
+                    <configuration>
+                        <finalName>bs-framework</finalName>
+                        <modules>
+                            <webModule>
+                                <groupId>br.com.bs</groupId>
+                                <artifactId>bs-framework-web</artifactId>
+	                        <contextRoot>/fw</contextRoot>
+                            </webModule>
+                            <ejbModule>
+                                <groupId>br.com.bs</groupId>
+                                <artifactId>bs-framework-ejb</artifactId>
+                            </ejbModule>
+                        </modules>
+                    </configuration>
+                </plugin>
+            </plugins>
+    </build>
 
-	<dependencies>
-	
+   <!-- our in app dependencies-->
+    <dependencies>
         <dependency>
             <groupId>br.com.bs</groupId>
             <artifactId>bs-framework-web</artifactId>
+            <version>${project.version}</version>
             <type>war</type>
-        	<version>0.0.1-SNAPSHOT</version>
         </dependency>
-	</dependencies>
-  
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.1</version>
-                <configuration>
-                    <source>1.7</source>
-                    <target>1.7</target>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-ear-plugin</artifactId>
-                <version>2.9</version>
-                <configuration>
-                    <version>7</version>
-                    <defaultLibBundleDir>lib</defaultLibBundleDir>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+
+        <dependency>
+            <groupId>br.com.bs</groupId>
+            <artifactId>bs-framework-ejb</artifactId>
+            <version>${project.version}</version>
+            <type>ejb</type>
+        </dependency>
+    </dependencies>
+
     
 </project>

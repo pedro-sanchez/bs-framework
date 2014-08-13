@@ -8,8 +8,8 @@ import br.com.bs.sistema.business.iface.IEstadoBO;
 import br.com.bs.sistema.entity.Estado;
 import br.com.bs.sistema.repository.impl.EstadoDAO;
 
-@Stateless
 @Local
+@Stateless
 public class EstadoBO extends GenericBO<Estado, EstadoDAO> implements IEstadoBO {
-		
+	
 }
