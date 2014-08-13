@@ -5,7 +5,6 @@ import java.io.Serializable;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
-import javax.inject.Inject;
 
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.sistema.business.iface.IEstadoBO;
