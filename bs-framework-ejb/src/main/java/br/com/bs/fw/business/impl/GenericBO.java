@@ -18,7 +18,8 @@ public class GenericBO<T extends IEntity, DAO extends IGenericDAO<T>> implements
 	private EntityManager em;
 	
 	@SuppressWarnings("unchecked")
-	protected DAO getDao(){			
+	protected DAO getDao(){		
+		System.out.println("obtendo dao");
 		return (DAO) DaoFactory.getDaoInstance((Class<? extends IGenericDAO<?>>) ReflectionUtil.getGenericClass(getClass(), 1), em);		
 	}
 

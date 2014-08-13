@@ -61,7 +61,7 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> impl
 	}
 	
 	public void list() {
-		System.out.println("listando...");
+		System.out.println("listando jrebel 2...");
 		this.entity = null;
 		this.setSelectedID(-1L);
 		mode = WindowModeEnum.LIST;

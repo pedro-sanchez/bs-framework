@@ -21,7 +21,7 @@ public class MBEstado extends MBGeneric<Estado, IEstadoBO> implements Serializab
 	private IEstadoBO estadoBO;
 	
 	public void init() {
-		System.out.println("init extendido");
+		System.out.println("init extendido jrebel2");
 		this.setWrapper(new EstadoWrapper());
 		setBo(estadoBO);
 	}
