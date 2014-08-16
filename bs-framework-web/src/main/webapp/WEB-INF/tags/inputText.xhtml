@@ -3,20 +3,37 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"	
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
 	xmlns:tags="http://tags.com/facelets">
 
   	<tags:input label="#{msg[label].concat(':')}" id="#{id}" rendered="#{rendered}" required="#{required}">
-  		<h:inputText id="#{id}" styleClass="form-control" 
-  			value="#{value}" 
-    		title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.replace(':','').toLowerCase()).concat('.')}" 
-    		rendered="#{(empty rendered or rendered)}" 
-    		pt:required="#{required}"  		
-			disabled="#{not empty disabled and disabled}"
-    		pt:data-requiredMessage="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replace(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"
-  			pt:data-toggle="tooltip"
-    		pt:data-placement="top"  
-    		pt:autofocus="#{autofocus}"
-  			/> 
+  		<c:choose>
+  			<c:when test="#{(not empty required and required)}">
+		  		<h:inputText id="#{id}" styleClass="form-control" 
+		  			value="#{value}" 
+		    		title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.replace(':','').toLowerCase()).concat('.')}" 
+		    		rendered="#{(empty rendered or rendered)}" 
+		    		pt:required="#{required}"  		
+					disabled="#{not empty disabled and disabled}"
+		    		pt:data-requiredMessage="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replace(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"
+		  			pt:data-toggle="tooltip"
+		    		pt:data-placement="top"  
+		    		pt:autofocus="#{autofocus}"
+		  			/> 
+  			</c:when>
+  			<c:otherwise>
+  				<h:inputText id="#{id}" styleClass="form-control" 
+		  			value="#{value}" 
+		    		title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.replace(':','').toLowerCase()).concat('.')}" 
+		    		rendered="#{(empty rendered or rendered)}"		    	  		
+					disabled="#{not empty disabled and disabled}"
+		    		pt:data-requiredMessage="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replace(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"
+		  			pt:data-toggle="tooltip"
+		    		pt:data-placement="top"  
+		    		pt:autofocus="#{autofocus}"
+		  			/> 
+  			</c:otherwise>
+  		</c:choose>
   	</tags:input>  
   	
   	

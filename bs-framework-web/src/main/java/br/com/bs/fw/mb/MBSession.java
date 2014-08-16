@@ -1,5 +1,6 @@
 package br.com.bs.fw.mb;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -12,7 +13,12 @@ import br.com.bs.fw.util.Menu;
 
 @ManagedBean(name="mbSession")
 @SessionScoped
-public class MBSession {
+public class MBSession implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8771305167968602628L;
+
 	private List<Menu> menuItem = new ArrayList<>();
 	
 	private String currentPage = "paginas/home.xhtml";

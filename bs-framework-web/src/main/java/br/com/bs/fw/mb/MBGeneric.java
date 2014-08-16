@@ -33,12 +33,12 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> impl
 	private T newEntity() {
 		return ((T) ReflectionUtil.getTNewInstance(this.getClass()));
 	}
-
+	
     public abstract void init();
     
     @PostConstruct
     public void initGeneric() {
-            init();
+            init();    
             paginationResult = new PaginationResult<>();
             list();
     }
@@ -61,7 +61,7 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> impl
 	}
 	
 	public void list() {
-		System.out.println("listando jrebel 2...");
+		System.out.println("listando...");
 		this.entity = null;
 		this.setSelectedID(-1L);
 		mode = WindowModeEnum.LIST;

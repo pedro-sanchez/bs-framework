@@ -18,10 +18,10 @@
 		<ul class="dropdown-menu multi-level" role="menu" aria-labelledby="#{menu.role}">			
 			<c:forEach var="item" items="#{menu.itens}">
 				<c:if test="#{empty item.itens}">
-					<tags:menuItem menu="#{item}" mb="#{mb}"/>
+					<tags:menuItem menu="#{item}" />
 				</c:if> 
 				<c:if test="#{not empty item.itens}">
-					<tags:menuSubNode subMenu="#{item}" mb="#{mb}"/>
+					<tags:menuSubNode subMenu="#{item}" />
 				</c:if>
 				    	
 	    	</c:forEach>
