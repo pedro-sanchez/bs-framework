@@ -40,12 +40,12 @@ public class MBSession implements Serializable{
 		buildMenu(
 			new Menu("MENU_TABELA","Tabela")
 				.add(new Menu("MENU_ENDERECO", "Endereço", "", "/resources/img/endereco.png")
-					.add(new Menu("MENU_ITEM_PAIS", "País", "paginas/usuario/usuarioList.xhtml"),
+					.add(new Menu("MENU_ITEM_PAIS", "País", "paginas/user/userList.xhtml"),
 						 new Menu("MENU_ITEM_ESTADO", "Estado", "paginas/estado/estadoList.xhtml"),
 						 new Menu("MENU_ITEM_CIDADE", "Cidade", "paginas/home.xhtml"))
 				),
 			new Menu("MENU_SISTEMA", "Sistema")
-			.add(new Menu("MENU_ITEM_USUARIO", "Usuario", "paginas/usuario/usuarioList.xhtml")));
+			.add(new Menu("MENU_ITEM_USUARIO", "Usuario", "paginas/user/userList.xhtml")));
 	}
 	
 	public void openMenuItem(){

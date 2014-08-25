@@ -83,8 +83,8 @@ public abstract class GenericDAO<T extends IEntity> implements IGenericDAO<T> {
 
 		StringBuilder hql = buildHQL(Boolean.FALSE);
 		
-		Query q = em.createQuery(hql.toString());
-		List<T> lista = q.getResultList();
+		Query query = em.createQuery(hql.toString());
+		List<T> lista = query.getResultList();
 		
 		return lista;
 		

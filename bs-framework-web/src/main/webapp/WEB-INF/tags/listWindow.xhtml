@@ -47,7 +47,8 @@
 		    			tooltip="fw.btn.new.tooltip"
 		    			mb="#{mb}" action="create" 
 		    			update=":formEdit"
-		    			styleClass="btn-success"
+		    			styleClass="btn-success"		    			
+		    			glyphicon="glyphicon glyphicon-file"
 		    			onevent="openModalOnComplete" />	
 	    		
 	    			<tags:button 
@@ -58,6 +59,7 @@
 		    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
 		    			process="@form"	update=":formEdit" 
 		    			styleClass="btn-primary btn-edit"
+		    			glyphicon="glyphicon glyphicon-pencil"
 		    			onevent="openModalOnComplete" />	
 					
 					<tags:confirmButton 

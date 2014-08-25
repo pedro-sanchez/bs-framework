@@ -6,6 +6,7 @@
      	<jta-data-source>jdbc/_planoGoverno</jta-data-source>
 
      	<class>br.com.bs.sistema.entity.Estado</class> 
+     	<class>br.com.bs.sistema.entity.User</class> 
 
     	<exclude-unlisted-classes>true</exclude-unlisted-classes>
 

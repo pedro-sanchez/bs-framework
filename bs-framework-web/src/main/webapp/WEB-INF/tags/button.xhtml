@@ -25,6 +25,11 @@
 				<f:ajax execute="#{(not empty process)? process: '@this'}" 
 					render="#{(not empty update)? update : '@form'}" />					
 			</c:if>
+			
+			
+			<c:if test="#{not empty glyphicon}">
+				<i class="#{glyphicon}"></i>
+			</c:if>
 		</h:commandButton>
 						
 			   
