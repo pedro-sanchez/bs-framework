@@ -18,6 +18,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<!--java version -->
 		<java-version>1.7</java-version>
+		<java-ear-version>7</java-ear-version>
 	
 		<!-- plugin versions -->
 		<ejb-plugin-version>2.3</ejb-plugin-version>
@@ -69,6 +70,7 @@
 					<artifactId>maven-ear-plugin</artifactId>
 					<version>${ear-plugin-version}</version>
 					<configuration>
+						<version>${java-ear-version}</version>
 						<generateModuleId>true</generateModuleId>
 						<archive>
 							<manifest>
