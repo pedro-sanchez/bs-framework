@@ -1,64 +1,96 @@
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-div#mapa {
-	margin: 0 0 25px 0;
-	text-align: -webkit-right;
+.table-header {
+	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F9F9F9),
+		color-stop(0.5, #E5E5E5));
+	background-image: -o-linear-gradient(bottom, #F9F9F9 0%, #E5E5E5 50%);
+	background-image: -moz-linear-gradient(bottom, #F9F9F9 0%, #E5E5E5 50%);
+	background-image: -webkit-linear-gradient(bottom, #F9F9F9 0%, #E5E5E5 50%);
+	background-image: -ms-linear-gradient(bottom, #F9F9F9 0%, #E5E5E5 50%);
+	background-image: linear-gradient(to bottom, #F9F9F9 0%, #E5E5E5 50%);
 }
 
-g path {
-	fill: #FFF;
-	stroke: #000;
-	stroke-width: 10px;
-	stroke-opacity: 1;
+.stage-system {
+	margin-top: 5px;
+	margin-bottom: 5px;
 }
 
-g path:hover {
-	cursor: pointer;
-	fill: rgba(101, 238, 145, 0.56);
+.alert-success-transparent {
+	width: 35%;
+	min-height: 80px;
+	margin-left: 35%;
+	margin-top: 15%;
+	color: #FFF;
+	text-shadow: 0 2px 2px rgba(0, 0, 0, 1);
+	background-color: #1CB841;
+	opacity: 0.7;
+	border-color: #d6e9c6;
+	position: absolute;
+	text-align: center;
+	z-index: 1000;
+	vertical-align: middle;
 }
 
-#conteudo {
-	margin: 25px auto;
-	background-color: rgba(105, 105, 47, 0.5);
-	border: 1px solid #000;
-	padding: 25px;
-	text-align: left;
-	width: 1270px;
-	margin-top: 50px;
+.tooltip {
+	z-index: 100000000 !important;
 }
 
-body {
-	/* For IE 9.0 */
-	background: -webkit-linear-gradient(left, rgb(14, 68, 150), rgb(11, 54, 0)); 
-	/* For Safari 5.1 to 6.0 */
-	background: -o-linear-gradient(right, rgb(14, 68, 150), rgb(11, 54, 0));
-	/* For Opera 11.1 to 12.0 */
-	background: -moz-linear-gradient(right, rgb(14, 68, 150), rgb(11, 54, 0));
-	/* For Firefox 3.6 to 15 */
-	background: linear-gradient(to right, rgb(14, 68, 150), rgb(11, 54, 0));
-	/* Standard syntax */
-	
+:invalid {
+  border-color: #a94442;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+}
+:focus:invalid {
+  border-color: #843534;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 6px #ce8483;
 }
 
 
-.oeste {
-	fill: #B0DFA1;
+
+
+.dropdown-submenu {
+    position: relative;
 }
 
-.norte {
-	fill: #7AA0CF;
+.dropdown-submenu>.dropdown-menu {
+    top: 0;
+    left: 100%;
+    margin-top: -6px;
+    margin-left: -1px;
+    -webkit-border-radius: 0 6px 6px 6px;
+    -moz-border-radius: 0 6px 6px;
+    border-radius: 0 6px 6px 6px;
 }
 
-.sul {
-	fill: #E8F77A;
+.dropdown-submenu:hover>.dropdown-menu {
+    display: block;
 }
 
-.leste {
-	fill: #FA9696;
+.dropdown-submenu>a:after {
+    display: block;
+    content: " ";
+    float: right;
+    width: 0;
+    height: 0;
+    border-color: transparent;
+    border-style: solid;
+    border-width: 5px 0 5px 5px;
+    border-left-color: #ccc;
+    margin-top: 5px;
+    margin-right: -10px;
 }
 
-.table-header thead > tr > th,
-.table-header thead > tr > td,{
-	background-color: #cccccc;
+.dropdown-submenu:hover>a:after {
+    border-left-color: #fff;
+}
+
+.dropdown-submenu.pull-left {
+    float: none;
+}
+
+.dropdown-submenu.pull-left>.dropdown-menu {
+    left: -100%;
+    margin-left: 10px;
+    -webkit-border-radius: 6px 0 6px 6px;
+    -moz-border-radius: 6px 0 6px 6px;
+    border-radius: 6px 0 6px 6px;
 }
