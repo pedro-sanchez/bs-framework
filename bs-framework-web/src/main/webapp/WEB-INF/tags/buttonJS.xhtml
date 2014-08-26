@@ -5,12 +5,11 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"	
 	xmlns:tags="http://tags.com/facelets">
 
-   		<h:commandButton    		
+   		<h:commandLink    		
    			type="button" 
    			styleClass="btn 
    			#{(not empty disabled and disabled)? 'disabled': ''} #{styleClass}"  
    			id="#{id}" 
-    		value="#{msg[value]}" 
     		title="#{msg[tooltip]}" 
     		pt:data-toggle="tooltip"
     		pt:data-placement="top"    		
@@ -20,8 +19,10 @@
 
 			<f:ajax execute="@none" 
 					render="@none" />
-		</h:commandButton>
-						
-						
-			   
+			
+			<c:if test="#{not empty icon}">
+				<i class="#{icon}" style="padding-right: 3px;"></i>
+			</c:if>
+			#{msg[value]}
+		</h:commandLink>
 </ui:composition>

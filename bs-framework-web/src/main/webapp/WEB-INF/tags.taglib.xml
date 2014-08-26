@@ -1,10 +1,88 @@
 <?xml version="1.0" ?>
 <facelet-taglib version="2.2"
-    xmlns="http://xmlns.jcp.org/xml/ns/javaee"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
-
+	xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
 	<namespace>http://tags.com/facelets</namespace>
+
+	<tag>
+		<tag-name>listWindow</tag-name>
+		<source>tags/listWindow.xhtml</source>
+		<attribute>
+			<name>mb</name>
+			<description>MB</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>title</name>
+			<description>Nome da janela</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>titleImage</name>
+			<description>nome do resource que ficará como imagem do title da janela</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>modal</tag-name>
+		<source>tags/modal.xhtml</source>
+		<attribute>
+			<name>title</name>
+			<description>Nome da janela</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>titleImage</name>
+			<description>nome do resource que ficará como imagem do title da janela</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>editWindow</tag-name>
+		<source>tags/editWindow.xhtml</source>
+		<attribute>
+			<name>title</name>
+			<description>Nome da janela</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>mb</name>
+			<description>MB</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>dataTable</tag-name>
+		<source>tags/dataTable.xhtml</source>
+		<attribute>
+			<name>id</name>
+			<description>id da datatable</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>mb</name>
+			<description>MB usado Pela dataTable</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>updateOnChange</name>
+			<description>Elemento que será atualizado após uma linha ser selecionada</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+	</tag>
 	<tag>
 		<tag-name>column</tag-name>
 		<source>tags/column.xhtml</source>
@@ -26,18 +104,22 @@
 			<required>false</required>
 			<type>string</type>
 		</attribute>
+		<attribute>
+			<name>titleHeader</name>
+			<description>hint para o header</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>titleRow</name>
+			<description>hint para a linha</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
 	</tag>
 	<tag>
 		<tag-name>searchTable</tag-name>
 		<source>tags/searchTable.xhtml</source>
-	</tag>
-	<tag>
-		<tag-name>paginateTable</tag-name>
-		<source>tags/paginateTable.xhtml</source>
-	</tag>
-	<tag>
-		<tag-name>dataTable</tag-name>
-		<source>tags/dataTable.xhtml</source>
 		<attribute>
 			<name>mb</name>
 			<description>MB usado Pela dataTable</description>
@@ -45,105 +127,42 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>id</name>
-			<description>id da datatable</description>
-			<required>true</required>
+			<name>update</name>
+			<description>Elemento que será atualizado após uma linha ser selecionada</description>
+			<required>false</required>
 			<type>string</type>
 		</attribute>
 	</tag>
-
 	<tag>
-		<tag-name>listWindow</tag-name>
-		<source>tags/listWindow.xhtml</source>
+		<tag-name>paginateTable</tag-name>
+		<source>tags/paginateTable.xhtml</source>
 		<attribute>
 			<name>mb</name>
-			<description>MB</description>
+			<description>MB usado Pela dataTable</description>
 			<required>true</required>
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>title</name>
-			<description>Nome da janela</description>
-			<required>true</required>
+			<name>updateOnChange</name>
+			<description>Elemento que será atualizado após uma linha ser selecionada</description>
+			<required>false</required>
 			<type>string</type>
 		</attribute>
 	</tag>
-
-	<tag>
-		<tag-name>modal</tag-name>
-		<source>tags/modal.xhtml</source>
-		<attribute>
-			<name>title</name>
-			<description>Nome da janela</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-	</tag>
-
-	<tag>
-		<tag-name>editWindow</tag-name>
-		<source>tags/editWindow.xhtml</source>
-		<attribute>
-			<name>title</name>
-			<description>Nome da janela</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-	</tag>
-
-
-	<tag>
-		<tag-name>input</tag-name>
-		<source>tags/input.xhtml</source>
-		<attribute>
-			<name>label</name>
-			<description>label do input</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
-			<name>id</name>
-			<description>id do input</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-	</tag>
-
 	<tag>
 		<tag-name>menuBar</tag-name>
 		<source>tags/menuBar.xhtml</source>
+		<attribute>
+			<name>mb</name>
+			<description>MB usado Pela dataTable</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
 	</tag>
 
 	<tag>
 		<tag-name>menuNode</tag-name>
 		<source>tags/menuNode.xhtml</source>
-	</tag>
-	
-	<tag>
-		<tag-name>menuSubNode</tag-name>
-		<source>tags/menuSubNode.xhtml</source>
-	</tag>
-
-	<tag>
-		<tag-name>menuItem</tag-name>
-		<source>tags/menuItem.xhtml</source>
-	</tag>
-
-	<tag>
-		<tag-name>inputText</tag-name>
-		<source>tags/inputText.xhtml</source>
-		<attribute>
-			<name>label</name>
-			<description>label do input</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
-			<name>tooltip</name>
-			<description>tooltip i18n do inputtext</description>
-			<required>false</required>
-			<type>string</type>
-		</attribute>
 		<attribute>
 			<name>id</name>
 			<description>id do input</description>
@@ -151,23 +170,42 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>value</name>
-			<description>value do input</description>
+			<name>menu</name>
+			<description>object menu com filhos</description>
 			<required>true</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
-			<name>autofocus</name>
-			<description>autofocus do input</description>
-			<required>true</required>
-			<type>boolean</type>
-			<default-value>false</default-value>
 		</attribute>
 	</tag>
+
+	<tag>
+		<tag-name>menuSubNode</tag-name>
+		<source>tags/menuSubNode.xhtml</source>
+		<attribute>
+			<name>subMenu</name>
+			<description>object menu com filhos</description>
+			<required>true</required>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>menuItem</tag-name>
+		<source>tags/menuItem.xhtml</source>
+		<attribute>
+			<name>menu</name>
+			<description>object menu com filhos</description>
+			<required>true</required>
+		</attribute>
+	</tag>
+
 	<tag>
 		<tag-name>button</tag-name>
 		<source>tags/button.xhtml</source>
 
+		<attribute>
+			<name>id</name>
+			<description>id do BUTTON</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
 		<attribute>
 			<name>value</name>
 			<description>value do button</description>
@@ -213,6 +251,13 @@
 		</attribute>
 
 		<attribute>
+			<name>tooltip</name>
+			<description>tooltip i18n do button</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+
+		<attribute>
 			<name>styleClass</name>
 			<description>styleClass do button</description>
 			<required>false</required>
@@ -224,7 +269,18 @@
 			<required>false</required>
 			<type>string</type>
 		</attribute>
-
+		<attribute>
+			<name>icon</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
 	</tag>
 	<tag>
 		<tag-name>buttonJS</tag-name>
@@ -249,20 +305,8 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>process</name>
-			<description>process do button</description>
-			<required>false</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
-			<name>update</name>
-			<description>update do button</description>
-			<required>false</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
-			<name>onevent</name>
-			<description>onevent do button</description>
+			<name>onclick</name>
+			<description>onclick do button</description>
 			<required>false</required>
 			<type>string</type>
 		</attribute>
@@ -273,15 +317,59 @@
 			<required>false</required>
 			<type>string</type>
 		</attribute>
+		<attribute>
+			<name>styleClass</name>
+			<description>styleClass do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
 	</tag>
+
 	<tag>
 		<tag-name>confirmButton</tag-name>
 		<source>tags/confirmButton.xhtml</source>
 
 		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
 			<name>value</name>
 			<description>value do button</description>
 			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>tooltip</name>
+			<description>tooltip i18n do button</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<description>disabled do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+
+		<attribute>
+			<name>styleClass</name>
+			<description>styleClass do button</description>
+			<required>false</required>
 			<type>string</type>
 		</attribute>
 		<attribute>
@@ -327,25 +415,18 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>onevent</name>
+			<name>oneventYes</name>
+			<description>onevent do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>oneventNo</name>
 			<description>onevent do button</description>
 			<required>false</required>
 			<type>string</type>
 		</attribute>
 
-		<attribute>
-			<name>disabled</name>
-			<description>disabled do button</description>
-			<required>false</required>
-			<type>string</type>
-		</attribute>
-
-		<attribute>
-			<name>styleClass</name>
-			<description>styleClass do button</description>
-			<required>false</required>
-			<type>string</type>
-		</attribute>
 		<attribute>
 			<name>title</name>
 			<description>title do button</description>
@@ -370,6 +451,120 @@
 			<required>false</required>
 			<type>string</type>
 		</attribute>
+		<attribute>
+			<name>yesTooltip</name>
+			<description>tooltip i18n do button</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>noTooltip</name>
+			<description>tooltip i18n do button</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
 
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+
+	</tag>
+
+	<tag>
+		<tag-name>input</tag-name>
+		<source>tags/input.xhtml</source>
+		<attribute>
+			<name>label</name>
+			<description>label do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+	</tag>
+
+	<tag>
+		<tag-name>inputText</tag-name>
+		<source>tags/inputText.xhtml</source>
+		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<description>label do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<description>value do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>tooltip</name>
+			<description>tooltip i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>onchange</name>
+			<description>onchange do inputText</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<description>disabled do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>requiredMessage</name>
+			<description>requiredMessage i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>autofocus</name>
+			<description>autofocus do input</description>
+			<required>true</required>
+			<type>boolean</type>
+			<default-value>false</default-value>
+		</attribute>
 	</tag>
 </facelet-taglib>

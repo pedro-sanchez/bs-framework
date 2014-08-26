@@ -7,15 +7,16 @@
 
 	<tags:listWindow title="user.title" mb="#{mbUser}">
 		<ui:define name="columns">
-			<tags:column label="user.list.id"
-				titleHeader="user.list.id.tooltip"
-				titleRow="user.list.id.tooltip" 
-				value="#{entity.id}" />
-			<tags:column label="user.list.nome"
-				titleHeader="user.list.nome.tooltip"
-				titleRow="user.list.nome.tooltip"
-				sortField="nome"
-				 value="#{entity.nome}" />
+			<tags:column 
+				label="user.list.id"
+				value="#{entity.id}" 
+			/>
+				
+			<tags:column 
+				label="user.list.nome"					
+				value="#{entity.nome}"		
+				sortField="nome" 
+			/>
 		</ui:define>
 		<ui:define name="modals">
 			<ui:include src="userEdit.xhtml" />

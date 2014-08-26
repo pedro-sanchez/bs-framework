@@ -1,3 +1,10 @@
+body {
+	padding-top: 50px;
+	padding-bottom: 20px;	
+	background: #D1E6E7;
+	-webkit-font-smoothing: antialiased;
+}
+
 .table-header {
 	background-image: -webkit-gradient(linear, left top, left bottom, color-stop(0, #F9F9F9),
 		color-stop(0.5, #E5E5E5));

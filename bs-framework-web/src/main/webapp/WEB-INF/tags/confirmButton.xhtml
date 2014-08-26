@@ -6,8 +6,9 @@
 	xmlns:tags="http://tags.com/facelets">
 
 		<tags:buttonJS id="#{id}" value="#{value}"  
-			tooltip="#{tooltip}" 			
-   			disabled="#{disabled}" onclick="confirmDialog('#{msg[title]}', '#{msg[message]}', '#{(not empty yes)?msg[yes]:msg['fw.btn.yes']}', '#{(not empty yesTitle)?msg[yesTitle]:msg['fw.btn.yes.tooltip']}', '#{(not empty no)?msg[no]:msg['fw.btn.no']}', '#{(not empty noTitle)?msg[noTitle]:msg['fw.btn.no.tooltip']}', '#{(not empty actionYes)?'ConfirmLinkYes':''}', '#{(not empty actionNo)?'ConfirmLinkNo':''}');"
+			tooltip="#{tooltip}" icon="#{icon}"	
+    		rendered="#{(empty rendered or rendered)}" 		
+   			disabled="#{disabled}" onclick="confirmDialog('#{msg[title]}', '#{msg[message]}', '#{(not empty yes)?msg[yes]:msg['fw.btn.yes']}', '#{(not empty yesTooltip)?msg[yesTooltip]:msg['fw.btn.yes.tooltip']}', '#{(not empty no)?msg[no]:msg['fw.btn.no']}', '#{(not empty noTooltip)?msg[noTooltip]:msg['fw.btn.no.tooltip']}', '#{(not empty actionYes)?'ConfirmLinkYes':''}', '#{(not empty actionNo)?'ConfirmLinkNo':''}');"
    			styleClass="#{styleClass}"  />	
 										
 		<h:panelGroup layout="block" style="display:none;"> 
