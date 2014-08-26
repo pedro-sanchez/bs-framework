@@ -1,0 +1,26 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:tags="http://tags.com/facelets">
+	
+	<tags:editWindow title="user.title">
+		<ui:define name="content">	
+			<tags:inputText id="txtId" 
+				label="user.edit.txtId"
+				value="#{mbUser.entity.id}"	
+				disabled="true"		
+				autofocus="false"
+	    		rendered="#{mb.mode eq 'EDIT'}"/>
+			
+			<tags:inputText id="txtNome" 
+				label="user.edit.txtNome"
+				required="true"
+				value="#{mbUser.entity.nome}"
+				autofocus="true"/>
+		</ui:define>	
+	</tags:editWindow>
+
+</ui:composition>
