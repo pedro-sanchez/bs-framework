@@ -144,11 +144,6 @@ function selectPicker() {
 	jQuery('.selectpicker').selectpicker();
 }
 
-jQuery(document).ready(function(jQuery) {
-	onOpenWindow();
-	return false;
-});
-
 function onOpenWindow(){
 	selectRowGrid();
 	orderGrid();

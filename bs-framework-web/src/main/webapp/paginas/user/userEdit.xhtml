@@ -25,8 +25,33 @@
 				label="user.edit.txtTelefone"
 				required="true"
 				value="#{mbUser.entity.telefone}"
-				onchange="alert('aaa');"
-				autofocus="true"/>
+				oninput="mask(this,Telefone);"
+				autofocus="false"/>
+				
+				
+			<tags:inputText id="txtEmail" 
+				label="user.edit.txtEmail"
+				required="true"
+				value="#{mbUser.entity.email}"
+				autofocus="false"/>
+								
+			<tags:inputText id="txtLogin" 
+				label="user.edit.txtLogin"
+				required="true"
+				value="#{mbUser.entity.login}"
+				autofocus="false"/>
+								
+			<tags:inputSecret id="txtPassword" 
+				label="user.edit.txtPassword"
+				required="true"
+				value="#{mbUser.entity.senha}"
+				autofocus="false"/>
+								
+			<tags:inputSecret id="txtPasswordConfirm" 
+				label="user.edit.txtPasswordConfirm"
+				required="true"
+				value="#{mbUser.entity.senhaConfirmar}"
+				autofocus="false"/>
 		</ui:define>	
 	</tags:editWindow>
 

@@ -263,6 +263,13 @@
 			<required>false</required>
 			<type>string</type>
 		</attribute>
+
+		<attribute>
+			<name>style</name>
+			<description>style do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
 		<attribute>
 			<name>onclick</name>
 			<description>onclick do button</description>
@@ -345,6 +352,12 @@
 			<name>id</name>
 			<description>id do input</description>
 			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>icon</name>
+			<description>icone do button</description>
+			<required>false</required>
 			<type>string</type>
 		</attribute>
 		<attribute>
@@ -548,6 +561,12 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
+			<name>oninput</name>
+			<description>oninput do inputText</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
 			<name>disabled</name>
 			<description>disabled do button</description>
 			<required>false</required>
@@ -567,4 +586,77 @@
 			<default-value>false</default-value>
 		</attribute>
 	</tag>
+
+	<tag>
+		<tag-name>inputSecret</tag-name>
+		<source>tags/inputSecret.xhtml</source>
+		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<description>label do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<description>value do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>tooltip</name>
+			<description>tooltip i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>onchange</name>
+			<description>onchange do inputText</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>oninput</name>
+			<description>oninput do inputText</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<description>disabled do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>requiredMessage</name>
+			<description>requiredMessage i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>autofocus</name>
+			<description>autofocus do input</description>
+			<required>true</required>
+			<type>boolean</type>
+			<default-value>false</default-value>
+		</attribute>
+	</tag>
+
 </facelet-taglib>

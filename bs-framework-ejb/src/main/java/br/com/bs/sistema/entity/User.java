@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import br.com.bs.fw.entity.iface.IEntity;
 
@@ -36,6 +37,9 @@ public class User implements IEntity, Serializable {
 
 	@Column(name = "password", length = 30, nullable = false)
 	private String senha;
+	
+	@Transient
+	private String senhaConfirmar;
 
 	@Column(name = "ativo", nullable = false)
 	private Boolean ativo = Boolean.TRUE;
@@ -90,6 +94,14 @@ public class User implements IEntity, Serializable {
 
 	public void setSenha(String senha) {
 		this.senha = senha;
+	}
+	
+	public String getSenhaConfirmar() {
+		return senhaConfirmar;
+	}
+
+	public void setSenhaConfirmar(String senhaConfirmar) {
+		this.senhaConfirmar = senhaConfirmar;
 	}
 
 	public Boolean getAtivo() {

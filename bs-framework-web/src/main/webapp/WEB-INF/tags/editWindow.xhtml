@@ -22,23 +22,25 @@
 					tooltip="fw.btn.save.tooltip"	
 	    			mb="#{mb}" action="save" 
 	    			process="@form"	update=":listForm:divTable" 
-	    			onclick="if (!args.validationFailed) { closeModal('myModal')} else{ errorMessage('Erro ao salvar dados!');}"
 	    			onevent="onSaveComplete"
+	    			icon="glyphicon glyphicon-floppy-disk"
 	    			styleClass="btn-success"  />	
+	    			
 	    				    		
     			<tags:button 
     			 	id="btnSavePlus"   
 					value="fw.btn.savePlus"
-					tooltip="fw.btn.savePlus.tooltip"	
+					tooltip="fw.btn.savePlus.tooltip"
 	    			mb="#{mb}" action="savePlus" 
 	    			process="@form"	update="formEdit" 
 	    			rendered="#{mb.mode eq 'NEW'}"	    			
-	    			onclick="if (args.validationFailed) {errorMessage('Erro ao salvar dados!');}"
 	    			onevent="onSaveComplete"
+	    			icon="fa fa-clipboard"	
 	    			styleClass="btn-primary"  />	
 	    			    		
     			<tags:buttonJS id="btnCancel" 
 					value="fw.btn.cancel"
+	    			icon="glyphicon glyphicon-remove"
 					tooltip="fw.btn.cancel.tooltip"					
 	    			onclick="closeModal('myModal')"
 	    			styleClass="btn-danger"  />						
