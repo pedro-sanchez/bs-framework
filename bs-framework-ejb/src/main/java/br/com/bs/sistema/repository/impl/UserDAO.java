@@ -27,11 +27,12 @@ public class UserDAO extends GenericDAO<User> {
 		query.setParameter("senha", senha);
 		query.setParameter("ativo", Boolean.TRUE);
 
-
-		User user = (User) query.getSingleResult();
-
-		return user;
-
+		try{
+			return (User) query.getSingleResult();
+		}
+		catch(Exception e){
+			return null;
+		}
 	}
 	public User findByEmail(String email) {
 

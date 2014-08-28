@@ -3,11 +3,32 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"	
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"	
 	xmlns:tags="http://tags.com/facelets">
 
     <h:panelGroup layout="block" styleClass="form-group" rendered="#{(empty rendered or rendered)}">
     	<h:outputLabel for="#{id}" value="#{label}" rendered="#{(empty rendered or rendered)}" />
     	<h:outputLabel for="#{id}" value="*" rendered="#{(not empty required or required)}" style="color: red;" />
-    	<ui:insert/>
+    	
+    	<c:choose>
+			<c:when test="#{(not empty iconLeft or not empty iconRight)}">			
+				<h:panelGroup layout="block" styleClass="input-group">
+					<c:if test="#{not empty iconLeft}">
+						<h:panelGroup  styleClass="input-group-addon">
+							<i class="#{iconLeft}"></i>
+						</h:panelGroup>						
+					</c:if>
+	    			<ui:insert/>
+	    			<c:if test="#{not empty iconRight}">
+						<h:panelGroup  styleClass="input-group-addon">
+							<i class="#{iconRight}"></i>
+						</h:panelGroup>						
+					</c:if>
+				</h:panelGroup>
+			</c:when>
+			<c:otherwise>
+    			<ui:insert/>
+			</c:otherwise>
+		</c:choose>
   	</h:panelGroup>
 </ui:composition>

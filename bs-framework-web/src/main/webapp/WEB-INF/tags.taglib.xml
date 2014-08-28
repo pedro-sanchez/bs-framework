@@ -513,6 +513,18 @@
 			<required>false</required>
 			<type>boolean</type>
 		</attribute>
+		<attribute>
+			<name>iconLeft</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconRight</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
 	</tag>
 
 	<tag>
@@ -555,6 +567,12 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
+			<name>placeholder</name>
+			<description>placeholder i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>		
+		<attribute>
 			<name>onchange</name>
 			<description>onchange do inputText</description>
 			<required>false</required>
@@ -584,6 +602,18 @@
 			<required>true</required>
 			<type>boolean</type>
 			<default-value>false</default-value>
+		</attribute>
+		<attribute>
+			<name>iconLeft</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconRight</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
 		</attribute>
 	</tag>
 
@@ -627,6 +657,12 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
+			<name>placeholder</name>
+			<description>placeholder i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>		
+		<attribute>
 			<name>onchange</name>
 			<description>onchange do inputText</description>
 			<required>false</required>
@@ -656,6 +692,18 @@
 			<required>true</required>
 			<type>boolean</type>
 			<default-value>false</default-value>
+		</attribute>
+		<attribute>
+			<name>iconLeft</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconRight</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
 		</attribute>
 	</tag>
 
