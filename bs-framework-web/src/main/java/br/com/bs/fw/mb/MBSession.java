@@ -9,6 +9,10 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import br.com.bs.fw.util.Menu;
 import br.com.bs.fw.util.ObjectUtil;
@@ -34,23 +38,100 @@ public class MBSession extends MBUtil implements Serializable {
 	private IUserBO userBO;
 
 	private Login login = new Login();
-	
+
 	private User currentUser = null;
 
-	public void authenticate() throws Exception {		
-		if(ObjectUtil.hasEmpty(login.getLogin(), login.getSenha())){
-        	addErrorMessage("Informe o Login e Senha!!!");
-        	return;
+	public void authenticate() throws Exception {
+		if (ObjectUtil.hasEmpty(login.getLogin(), login.getSenha())) {
+			addErrorMessage("Informe o Login e Senha!!!");
+			return;
 		}
+
+		currentUser = userBO.findByLoginAndSenha(login.getLogin(),
+				login.getSenha());
+		if (!ObjectUtil.isEmpty(currentUser)) {
+			addCookie();
+			createMenu();
+			currentStage = "commonLayout.xhtml";
+		} else {
+			login.setSenha(null);
+			addErrorMessage("Login ou Senha  não conferem!\nVerefique os dados informados");
+		}
+	}
+	
+	public void endSession(){
+		removeCookie();
+		this.login = new Login();
+		this.currentUser = null;
+		this.currentStage = "login.xhtml";
+	}
+	
+	private void cookieAuthenticate() throws Exception{
+		FacesContext context = FacesContext.getCurrentInstance();
+		Cookie cookies[]=((HttpServletRequest)(context.getExternalContext().getRequest())).getCookies();
 		
-		currentUser = userBO.findByLoginAndSenha(login.getLogin(), login.getSenha());		
-		if(!ObjectUtil.isEmpty(currentUser)){
-			currentStage = "commonLayout.xhtml";	
+		if(cookies != null && cookies.length>0){
+			Login login = new Login();
+			for (int i = 0; i < cookies.length; i++) {
+				Cookie cookie = cookies[i];
+
+				if(cookie.getName().equals("login")){
+					login.setLogin(cookie.getValue());
+				}
+
+				if(cookie.getName().equals("senha")){
+					login.setSenha(cookie.getValue());
+				}
+
+				if(cookie.getName().equals("remember")){
+					login.setRememberMe(cookie.getValue().equals("true"));
+				}				
+			}
+			
+			if(login.getRememberMe()){
+				this.login = login;
+				authenticate();
+			}
+		}
+	}
+
+	private void addCookie() {
+		if(login.getRememberMe()){
+			FacesContext context = FacesContext.getCurrentInstance();
+	
+			Cookie loginCookie = new Cookie("login", login.getLogin());
+			loginCookie.setMaxAge(1800);
+			
+			Cookie senhaCookie = new Cookie("senha", login.getSenha());
+			senhaCookie.setMaxAge(1800);
+			
+			Cookie rememberCookie = new Cookie("remember", "true");
+			rememberCookie.setMaxAge(1800);
+	
+			((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(loginCookie);
+			((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(senhaCookie);
+			((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(rememberCookie);
 		}
 		else{
-			login.setSenha(null);
-        	addErrorMessage("Login ou Senha  não conferem!\nVerefique os dados informados");
-		}		
+			removeCookie();
+		}
+	}
+
+	private void removeCookie() {
+		FacesContext context = FacesContext.getCurrentInstance();
+
+		Cookie loginCookie = new Cookie("login", "");
+		loginCookie.setMaxAge(1);
+		
+		Cookie senhaCookie = new Cookie("senha", "");
+		senhaCookie.setMaxAge(1);
+		
+		Cookie rememberCookie = new Cookie("remember", "false");
+		rememberCookie.setMaxAge(1);
+
+		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(loginCookie);
+		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(senhaCookie);
+		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(rememberCookie);
 	}
 
 	public Login getLogin() {
@@ -69,9 +150,12 @@ public class MBSession extends MBUtil implements Serializable {
 	}
 
 	@PostConstruct
-	public void initGeneric() {
-		System.out.println("estou dentro do mb session");
-		createMenu();
+	public void init() {
+		try {
+			cookieAuthenticate();	
+		} catch (Exception e) {
+			endSession();
+		}
 	}
 
 	protected void createMenu() {

@@ -18,7 +18,7 @@
 				<a class="navbar-brand" href="#">FW</a>
 			</h:panelGroup>
 			
-			<h:panelGroup layout="block" styleClass="navbar-collapse collapse">
+			<h:panelGroup layout="block" styleClass="navbar-collapse collapse navbar-left">
 				<h:form styleClass="navbar-form navbar-left" prependId="false" >
 					<h:commandButton id="btnUpdateStage" style="display: none">		
 						<f:ajax execute="@form" 
@@ -33,6 +33,22 @@
 				
 				
 			</h:panelGroup>
+			
+			<h:panelGroup layout="block" styleClass="navbar-right">
+				<h:form styleClass="navbar-form navbar-right" prependId="false" >
+						
+    			<tags:button   
+    			 	id="btnLogOut"   			
+					value="fw.btn.logOut"
+					tooltip="fw.btn.logOut.tooltip"	
+	    			mb="#{mbSession}" action="endSession" 
+	    			process="@this"	update="@all" 
+	    			icon="glyphicon glyphicon-off"
+	    			styleClass="btn-danger navbar-nav"  />	
+	    			
+				</h:form>
+			</h:panelGroup>
+			
 
 			<!--/.navbar-collapse -->
 		</h:panelGroup>
