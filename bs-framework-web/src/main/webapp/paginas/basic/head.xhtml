@@ -16,6 +16,7 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">FW</a>
+				
 			</h:panelGroup>
 			
 			<h:panelGroup layout="block" styleClass="navbar-collapse collapse navbar-left">
@@ -31,14 +32,14 @@
 				
 				<tags:menuBar mb="#{mbSession}"/>
 				
-				
+				<!-- exibir outro menu do usuário para sair -->
 			</h:panelGroup>
 			
-			<h:panelGroup layout="block" styleClass="navbar-right">
+			<h:panelGroup layout="block" styleClass="navbar-right hidden-sm hidden-xs">
 				<h:form styleClass="navbar-form navbar-right" prependId="false" >
 						
     			<tags:button   
-    			 	id="btnLogOut"   			
+    			 	id="btnLogOutMobile"   			
 					value="fw.btn.logOut"
 					tooltip="fw.btn.logOut.tooltip"	
 	    			mb="#{mbSession}" action="endSession" 

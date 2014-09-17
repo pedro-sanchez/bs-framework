@@ -4,6 +4,26 @@
 	xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facelettaglibrary_2_2.xsd">
 	<namespace>http://tags.com/facelets</namespace>
 
+
+	<tag>
+		<tag-name>div</tag-name>
+		<source>tags/div.xhtml</source>
+
+		<attribute>
+			<name>styleClass</name>
+			<description>styleClass do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+
+		<attribute>
+			<name>style</name>
+			<description>style do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		
+	</tag>
 	<tag>
 		<tag-name>listWindow</tag-name>
 		<source>tags/listWindow.xhtml</source>

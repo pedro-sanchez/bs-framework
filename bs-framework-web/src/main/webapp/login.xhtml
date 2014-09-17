@@ -5,54 +5,60 @@
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:tags="http://tags.com/facelets"
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
-
-	<h:panelGroup layout="block" styleClass="login-wrapper">
-		<h:panelGroup layout="block" styleClass="logo">
-			<h:graphicImage
-				value="/resources/img/logo.png"
-				style="border: none;" />
-		</h:panelGroup>
-
-		<h:form id="loginForm" pt:role="form" prependId="true">
-			<h:panelGroup layout="block" styleClass="well-white">
-				<h:panelGroup layout="block" styleClass="login-header">
-					<h3 style="margin:0px !important;">Log in</h3>
-				</h:panelGroup>
 	
-				<h:panelGroup layout="block" styleClass="panel-body">
-						
-					<tags:inputText id="txtLogin" 
-						label="login.txtLogin"
-						required="true"
-						value="#{mbSession.login.login}"
-						iconLeft="glyphicon glyphicon-user"
-						autofocus="false"/>
-										
-					<tags:inputSecret id="txtPassword" 
-						label="login.txtPassword"
-						required="true"
-						value="#{mbSession.login.senha}"
-						iconLeft="fa fa-key"
-						autofocus="false"/>
-					
-					<h:panelGroup layout="block" styleClass="row">	
-					
-						<h:panelGroup layout="block" styleClass="col-md-6">	
-							<h:selectBooleanCheckbox value="#{mbSession.login.rememberMe}" />#{msg['login.rememberMe']}
-						</h:panelGroup>						
-						<h:panelGroup layout="block" styleClass="col-md-6">	
-							<tags:button id="btnLogin" value="login.btnLogin" icon="fa fa-share" styleClass="btn-success" style="width: 100% !important" 
-								tooltip="login.btnLogin" mb="#{mbSession}" action="authenticate" process="@form" update="@all"/>
-						</h:panelGroup>
-					</h:panelGroup>
-				</h:panelGroup>
-	
-			</h:panelGroup>
-			<h:panelGroup layout="block" styleClass="pull-right" style="margin: 5px;">
-				<h:outputLink value="#">#{msg['login.forgotPassword']}</h:outputLink>
-			</h:panelGroup>
-		</h:form>
-	</h:panelGroup>
+	<tags:div styleClass="container">
+		<tags:div styleClass="row">
+			<tags:div styleClass="col-md-4 col-md-offset-4">
+				<tags:div styleClass="logo">
+					<h:graphicImage
+						value="/resources/img/logo.png"
+						style="border: none;" />
+				</tags:div>
+		
+				<h:form id="loginForm" pt:role="form" prependId="true">
+					<tags:div styleClass="well-white">
+						<tags:div styleClass="login-header">
+							<h3 style="margin:0px !important;">Log in</h3>
+						</tags:div>
+			
+						<tags:div styleClass="panel-body">
+								
+							<tags:inputText id="txtLogin" 
+								label="login.txtLogin"
+								required="true"
+								value="#{mbSession.login.login}"
+								iconLeft="glyphicon glyphicon-user"
+								autofocus="false"/>
+												
+							<tags:inputSecret id="txtPassword" 
+								label="login.txtPassword"
+								required="true"
+								value="#{mbSession.login.senha}"
+								iconLeft="fa fa-key"
+								autofocus="false"/>
+							
+							<tags:div styleClass="row">	
+							
+								<tags:div styleClass="col-xs-6">	
+									<h:selectBooleanCheckbox value="#{mbSession.login.rememberMe}" />#{msg['login.rememberMe']}
+								</tags:div>						
+								<tags:div styleClass="col-xs-6">	
+									<tags:button id="btnLogin" value="login.btnLogin" icon="fa fa-share" styleClass="btn-success" style="width: 100% !important" 
+										tooltip="login.btnLogin" mb="#{mbSession}" action="authenticate" process="@form" update="@all"/>
+								</tags:div>
+							</tags:div>
+						</tags:div>
+			
+					</tags:div>
+					<tags:div styleClass="pull-right" style="margin: 5px;">
+						<h:outputLink value="#">#{msg['login.forgotPassword']}</h:outputLink>
+					</tags:div>
+				</h:form>
+			
+			</tags:div>
+		</tags:div>
+	</tags:div>
+
 	<h:messages id="globalMessage" styleClass="messagesUL" warnClass="warning" errorClass="error" fatalClass="error" infoClass="success" />
 	
 	
