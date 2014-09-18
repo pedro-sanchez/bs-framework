@@ -20,7 +20,7 @@
 			</h:panelGroup>
 			
 			<h:panelGroup layout="block" styleClass="navbar-collapse collapse navbar-left">
-				<h:form styleClass="navbar-form navbar-left" prependId="false" >
+				<h:form styleClass="navbar-form navbar-left hide" prependId="false" >
 					<h:commandButton id="btnUpdateStage" style="display: none">		
 						<f:ajax execute="@form" 
 								render="@this :stage" onevent="onStageComplete" />

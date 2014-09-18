@@ -2,17 +2,9 @@ package br.com.bs.fw.mb;
 
 import java.io.Serializable;
 
-import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
-
-import br.com.bs.fw.business.iface.IGenericBO;
-import br.com.bs.fw.entity.iface.IEntity;
-import br.com.bs.fw.enumeration.WindowModeEnum;
-import br.com.bs.fw.util.GenericWrapper;
-import br.com.bs.fw.util.PaginationResult;
-import br.com.bs.fw.util.ReflectionUtil;
 
 public abstract class MBUtil implements Serializable {
 	private static final long serialVersionUID = 1L;
