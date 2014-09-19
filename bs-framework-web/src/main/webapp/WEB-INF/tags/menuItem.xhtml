@@ -7,7 +7,7 @@
 	xmlns:tags="http://tags.com/facelets">
 	
 	<li role="presentation">    		
-    	<a role="menuitem" tabindex="-1" href="#" onclick="openWindow('#{menu.url}')">
+    	<a role="menuitem" tabindex="-1" onclick="openWindow('#{menu.url}')">
     		<h:graphicImage	value="#{(empty menu.icon)?'/resources/img/window.png': menu.icon }"
 							style="border: none; margin-right: 3px;" />
 			<h:outputLabel value="#{menu.label}"/>

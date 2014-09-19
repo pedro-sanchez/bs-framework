@@ -13,7 +13,7 @@
     		title="#{msg[tooltip]}" 
     		pt:data-toggle="tooltip"
     		pt:data-placement="top"
-    		type="submit" onclick="window.location.href='#'; #{onclick}"
+    		type="submit" onclick="#{onclick}"
     		rendered="#{(empty rendered or rendered)}" 
 			action="#{mb[action]}" disabled="#{not empty disabled and disabled}">
 	

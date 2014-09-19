@@ -37,15 +37,15 @@
 			
 			<h:panelGroup layout="block" styleClass="navbar-right hidden-sm hidden-xs">
 				<h:form styleClass="navbar-form navbar-right" prependId="false" >
-						
-    			<tags:button   
-    			 	id="btnLogOutMobile"   			
-					value="fw.btn.logOut"
-					tooltip="fw.btn.logOut.tooltip"	
-	    			mb="#{mbSession}" action="endSession" 
-	    			process="@this"	update="@all" 
-	    			icon="glyphicon glyphicon-off"
-	    			styleClass="btn-danger navbar-nav"  />	
+							
+	    			<tags:button   
+	    			 	id="btnLogOutMobile"   			
+						value="fw.btn.logOut"
+						tooltip="fw.btn.logOut.tooltip"	
+		    			mb="#{mbSession}" action="endSession" 
+		    			process="@this"	update=":mainDiv" 
+		    			icon="glyphicon glyphicon-off"
+		    			styleClass="btn-danger navbar-nav"  />	
 	    			
 				</h:form>
 			</h:panelGroup>

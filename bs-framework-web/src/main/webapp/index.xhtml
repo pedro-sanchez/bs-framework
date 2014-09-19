@@ -27,11 +27,9 @@
 
 </h:head>
 <h:body>
-
-	<ui:include src="#{mbSession.currentStage}"/>
-	
-	<script src="resources/js/main.js"></script>	
-	<script src="resources/js/mask.js"></script>	
+	<h:panelGroup layout="block" id="mainDiv">
+		<ui:include src="#{mbSession.currentStage}"/>
+	</h:panelGroup>
 			
 	<script src="resources/js/vendor/jquery-1.11.0.min.js"></script>
 	<script src="resources/js/vendor/bootstrap.min.js"></script>
@@ -40,11 +38,17 @@
 	<script src="resources/js/vendor/bootstrap-select.min.js"></script>
 	
 	<script src="resources/js/vendor/jquery.bootstrap-growl.min.js"></script>
+		
+	<script src="resources/js/main.js"></script>
+	<script src="resources/js/message.js"></script>
+	<script src="resources/js/table.js"></script>	
+	<script src="resources/js/window.js"></script>	
 	
 	
 	<script>
 		$( document ).ready(function() {
 			readyMessage();
+			loadValidation();
 		});		
 	</script>
 	      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
