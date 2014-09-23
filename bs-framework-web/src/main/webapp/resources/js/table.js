@@ -1,3 +1,10 @@
+function readyTable(){
+	selectRowGrid();
+	orderGrid();
+	
+	return false;
+}
+
 function orderGrid() {
 	jQuery('.table-header').click(function() {
 

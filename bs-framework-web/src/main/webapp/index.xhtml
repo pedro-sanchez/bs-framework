@@ -23,43 +23,14 @@
 	<link rel="stylesheet" href="resources/css/font-awesome.min.css" />
 	<link rel="stylesheet" href="resources/css/main.css" />
 	
-	<script src="resources/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+	<script language="javascript" type="text/javascript" src="resources/js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
 
 </h:head>
 <h:body>
 	<h:panelGroup layout="block" id="mainDiv">
 		<ui:include src="#{mbSession.currentStage}"/>
 	</h:panelGroup>
-			
-	<script src="resources/js/vendor/jquery-1.11.0.min.js"></script>
-	<script src="resources/js/vendor/bootstrap.min.js"></script>
 	
-	<script src="resources/js/vendor/bootbox.min.js"></script>
-	<script src="resources/js/vendor/bootstrap-select.min.js"></script>
-	
-	<script src="resources/js/vendor/jquery.bootstrap-growl.min.js"></script>
-		
-	<script src="resources/js/main.js"></script>
-	<script src="resources/js/message.js"></script>
-	<script src="resources/js/table.js"></script>	
-	<script src="resources/js/window.js"></script>	
-	
-	
-	<script>
-		$( document ).ready(function() {
-			readyMessage();
-			loadValidation();
-		});		
-	</script>
-	      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-	      <!-- <script>
-	          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-	          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-	          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-	          e.src='//www.google-analytics.com/analytics.js';
-	          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-	          ga('create','UA-XXXXX-X');ga('send','pageview');
-	      </script> -->
-
+	<ui:include src="script.xhtml"/>
 </h:body>
 </html>

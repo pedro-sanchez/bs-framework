@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:tags="http://tags.com/facelets"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	
+	<h:outputScript library="js" name="vendor/jquery-1.11.0.min.js" />
+	<h:outputScript library="js" name="vendor/bootstrap.min.js" />
+	<h:outputScript library="js" name="vendor/bootbox.min.js" />
+	<h:outputScript library="js" name="vendor/bootstrap-select.min.js" />
+	<h:outputScript library="js" name="vendor/jquery.bootstrap-growl.min.js" />
+	
+	<h:outputScript library="js" name="main.js" />
+	<h:outputScript library="js" name="message.js" />
+	<h:outputScript library="js" name="table.js" />
+	<h:outputScript library="js" name="window.js" />
+	<h:outputScript library="js" name="viewState.js" />
+	
+	      <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	      <!-- <script>
+	          (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
+	          function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
+	          e=o.createElement(i);r=o.getElementsByTagName(i)[0];
+	          e.src='//www.google-analytics.com/analytics.js';
+	          r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
+	          ga('create','UA-XXXXX-X');ga('send','pageview');
+	      </script> -->
+	
+	<script>
+		jQuery( document ).ready(function() {
+			fullReady();
+		});	
+
+		jQuery(window).on('load', function(){
+			fullReady();
+		});
+	</script>
+</ui:composition>	
+

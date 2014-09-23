@@ -52,6 +52,7 @@ public class MBSession extends MBUtil implements Serializable {
 		if (!ObjectUtil.isEmpty(currentUser)) {
 			addCookie();
 			createMenu();
+			currentPage = "paginas/home.xhtml";
 			currentStage = "commonLayout.xhtml";
 		} else {
 			login.setSenha(null);
@@ -89,7 +90,7 @@ public class MBSession extends MBUtil implements Serializable {
 			}
 			
 			if(login.getRememberMe()){
-				this.login = login;
+				this.login = login;				
 				authenticate();
 			}
 		}
