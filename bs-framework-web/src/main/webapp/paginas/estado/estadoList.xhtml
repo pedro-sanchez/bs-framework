@@ -5,7 +5,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:tags="http://tags.com/facelets">
 
-	<tags:listWindow title="estado.title" mb="#{mbEstado}">
+	<tags:listWindow title="estado.title" mb="#{mbEstado}" editWindow="paginas/estado/estadoEdit.xhtml">
 		<ui:define name="columns">
 			<tags:column label="estado.list.id"
 				titleHeader="estado.list.id.tooltip"
@@ -16,9 +16,6 @@
 				titleRow="estado.list.nome.tooltip"
 				sortField="nome"
 				 value="#{entity.nome}" />
-		</ui:define>
-		<ui:define name="modals">
-			<ui:include src="estadoEdit.xhtml" />
 		</ui:define>
 	</tags:listWindow>
 

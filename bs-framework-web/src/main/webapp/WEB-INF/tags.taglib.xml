@@ -28,6 +28,12 @@
 		<tag-name>listWindow</tag-name>
 		<source>tags/listWindow.xhtml</source>
 		<attribute>
+			<name>editWindow</name>
+			<description>url da janela de edição</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
 			<name>mb</name>
 			<description>MB</description>
 			<required>true</required>

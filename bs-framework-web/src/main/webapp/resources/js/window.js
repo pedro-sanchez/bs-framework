@@ -6,32 +6,36 @@ function openWindow(uri) {
 
 function onStageComplete(data) {
 	if (data.status == "success") {
-		onOpenWindow();
+		fullReady();
 		return false;
 	}
 }
 
-function onOpenWindow(){
-	selectRowGrid();
-	orderGrid();
-	readyMessage();
-	toolTipStart();
-	selectPicker();
+function openModalJSF(uri) {
+	jQuery('[id*="modalUrl"]').val(uri);
+	/*jQuery('[id*="modalMB"]').val(mb);*/
+	jQuery('[id*="btnUpdateModal"]').click();
 	return false;
 }
 
-function openModal(modalName) {
-	jQuery('#' + modalName).modal('show');
-	toolTipStart();
-	readyMessage();
-	loadValidation();
+
+function onModalComplete(data) {
+	if (data.status == "success") {
+		openModal();
+		return false;
+	}
+}
+
+
+function openModal() {
+	jQuery('#myModal').modal('show');
+	fullReady();
 	return false;
 }
 
 function closeModal(modalName) {
-	jQuery('#' + modalName).modal('hide');
-	selectRowGrid();
-	orderGrid();
+	jQuery('#myModal').modal('hide');
+	fullReady();
 	return false;
 }
 
@@ -66,15 +70,13 @@ function confirmDialog(title, message, yes, yesTitle, no, noTitle, yesLinkID,
 		}
 	});
 
-	toolTipStart();
+	basicReady();
 	return false;
 }
 
 function onCompletConfirm(data) {
 	if (data.status == "success") {
-		selectRowGrid();
-		orderGrid();
-		toolTipStart();
+		fullReady();
 		return false;
 	}
 }

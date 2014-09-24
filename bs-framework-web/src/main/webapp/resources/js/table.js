@@ -98,9 +98,7 @@ function setCurrentIndex(currentIndex) {
 
 function onPaginationComplete(data) {
 	if (data.status == "success") {
-		selectRowGrid();
-		orderGrid();
-		toolTipStart();
+		fullReady();
 		return false;
 	}
 }
@@ -118,7 +116,7 @@ function setSelectedID(selectedId) {
 
 function onSelectedIDComplete(data) {
 	if (data.status == "success") {
-		toolTipStart();
+		basicReady();
 		return false;
 	}
 }

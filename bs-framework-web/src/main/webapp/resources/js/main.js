@@ -20,11 +20,7 @@ function selectPicker() {
 
 function onSaveComplete(data) {
 	if (data.status == "success") {
-		selectRowGrid();
-		orderGrid();
-		toolTipStart();
-		showMessage();
-		
+		fullReady();
 		return false;
 	}
 }

@@ -5,7 +5,7 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:tags="http://tags.com/facelets">
 
-	<tags:listWindow title="user.title" mb="#{mbUser}">
+	<tags:listWindow title="user.title" mb="#{mbUser}" editWindow="paginas/user/userEdit.xhtml">
 		<ui:define name="columns">
 			<tags:column 
 				label="user.list.id"
@@ -18,13 +18,5 @@
 				sortField="nome" 
 			/>
 		</ui:define>
-		<ui:define name="modals">
-			<ui:include src="userEdit.xhtml" />
-		</ui:define>
 	</tags:listWindow>
-
-
-
-
-
 </ui:composition>

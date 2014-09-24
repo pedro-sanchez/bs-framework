@@ -31,8 +31,19 @@
 			<ui:include src="#{mbSession.currentStage}"/>
 		</h:panelGroup>
 		
+		<h:form styleClass="hide" prependId="false" >
+			<h:commandButton id="btnUpdateModal" style="display: none" action="#{mbSession.abrirModal}">		
+				<f:ajax execute="@form" 
+						render="@this :modalDiv" onevent="onModalComplete" />
+			</h:commandButton>
+		
+			<h:inputHidden id="modalUrl" value="#{mbSession.currentModalURL}"/>			
+			<!-- <h:inputHidden id="modalMB" value="#{mbSession.currentModalMB}"/> -->	
+		
+		</h:form>
+		
 		<h:panelGroup layout="block" id="modalDiv">
-			<ui:include src="#{mbSession.currentModal}"/>
+			<ui:include src="#{mbSession.currentModalURL}"/>
 		</h:panelGroup>
 		
 		<ui:include src="script.xhtml"/>

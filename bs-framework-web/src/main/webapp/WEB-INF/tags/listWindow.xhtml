@@ -46,7 +46,7 @@
 	    				value="fw.btn.new"
 		    			tooltip="fw.btn.new.tooltip"
 		    			mb="#{mb}" action="create" 
-		    			update=":formEdit"
+		    			update="@none"
 		    			styleClass="btn-success"		    			
 		    			icon="glyphicon glyphicon-file"
 		    			onevent="openModalOnComplete" />	
@@ -57,7 +57,7 @@
 		    			tooltip="fw.btn.edit.tooltip"
 		    			mb="#{mb}" action="edit" 
 		    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
-		    			process="@form"	update=":formEdit" 
+		    			process="@form"	update="@none" 
 		    			styleClass="btn-primary btn-edit"
 		    			icon="glyphicon glyphicon-pencil"
 		    			onevent="openModalOnComplete" />	
@@ -87,11 +87,10 @@
 			
 			function openModalOnComplete(data){
 				if (data.status == "success"){
-					openModal('myModal');
+					openModalJSF('#{editWindow}');
 				}
 			}
 			
 		</script>
-    <ui:insert name="modals" />	
 			   
 </ui:composition>

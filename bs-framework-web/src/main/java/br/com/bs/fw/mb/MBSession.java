@@ -27,20 +27,24 @@ public class MBSession extends MBUserAutentication implements Serializable {
 
 	private String currentPage = "paginas/home.xhtml";
 
-	private String currentModal = "blank.xhtml";
+	private String currentModalURL = "blank.xhtml";
+	
+	private Object currentModalMB = null;
 
 	@Override
 	protected void onLoginSuccess() {
 		createMenu();
 		this.currentPage = "paginas/home.xhtml";
 		this.currentStage = "commonLayout.xhtml";
-		this.currentModal = "blank.xhtml";
+		this.currentModalURL = "blank.xhtml";
+		this.currentModalMB = null;
 	}
 
 	@Override
 	protected void onEndSession() {
 		this.currentStage = "login.xhtml";
-		this.currentModal = "blank.xhtml";
+		this.currentModalURL = "blank.xhtml";
+		this.currentModalMB = null;
 	}
 
 	@PostConstruct
@@ -52,10 +56,9 @@ public class MBSession extends MBUserAutentication implements Serializable {
 		}
 	}
 
-	public void abrirModal(String url, Object managedBean){
-		currentModal = url;
-	}
-	
+	public void abrirModal(){
+		System.out.println("abrirModal");
+	}	
 	
 	protected void buildMenu(Menu... menuItem) {
 		this.menuItem.clear();
@@ -104,15 +107,20 @@ public class MBSession extends MBUserAutentication implements Serializable {
 		this.currentStage = currentStage;
 	}
 
-	public String getCurrentModal() {
-		return currentModal;
+	public String getCurrentModalURL() {
+		return currentModalURL;
 	}
 
-	public void setCurrentModal(String currentModal) {
-		this.currentModal = currentModal;
+	public void setCurrentModalURL(String currentModalURL) {
+		this.currentModalURL = currentModalURL;
+	}
+
+	public Object getCurrentModalMB() {
+		return currentModalMB;
+	}
+
+	public void setCurrentModalMB(Object currentModalMB) {
+		this.currentModalMB = currentModalMB;
 	}
 	
-	
-
-
 }
