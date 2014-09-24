@@ -1,41 +1,20 @@
-package br.com.bs.fw.util;
+package br.com.bs.fw.menubar;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Menu {
+public abstract class Menu {
 	private String label;
 	private String role;
 	private String url;
 	private	String icon;
 	private Boolean separator;
+	private Boolean modal;
 	
 	private List<Menu> itens;
-
-	public Menu() {
-	}
 	
-	public Menu(Boolean separator) {
-		this.separator = separator;
-	}
-
-	public Menu(String role, String label) {
-		this.role = role;
-		this.label = label;
-	}
-
-	public Menu(String role, String label, String url) {
-		this(role, label);
-		this.url=url;
-	}
-	
-	public Menu(String role, String label, String url, String icon) {
-		this(role, label, url);		
-		this.icon=icon;
-	}
-	
-	public Menu add(Menu... itens){
+	Menu add(Menu... itens){
 		if(itens!= null){
 			if(this.itens== null){
 				this.itens =  new ArrayList<>();
@@ -49,7 +28,7 @@ public class Menu {
 		return role;
 	}
 
-	public void setRole(String role) {
+	void setRole(String role) {
 		this.role = role;
 	}
 
@@ -57,7 +36,7 @@ public class Menu {
 		return label;
 	}
 
-	public void setLabel(String label) {
+	void setLabel(String label) {
 		this.label = label;
 	}
 
@@ -65,7 +44,7 @@ public class Menu {
 		return url;
 	}
 
-	public void setUrl(String url) {
+	void setUrl(String url) {
 		this.url = url;
 	}
 
@@ -73,7 +52,7 @@ public class Menu {
 		return icon;
 	}
 
-	public void setIcon(String icon) {
+	void setIcon(String icon) {
 		this.icon = icon;
 	}
 
@@ -81,7 +60,7 @@ public class Menu {
 		return separator;
 	}
 
-	public void setSeparator(Boolean separator) {
+	void setSeparator(Boolean separator) {
 		this.separator = separator;
 	}
 
@@ -89,7 +68,11 @@ public class Menu {
 		return itens;
 	}
 
-	public void setItens(List<Menu> itens) {
-		this.itens = itens;
-	}	
+	public Boolean getModal() {
+		return modal;
+	}
+
+	void setModal(Boolean modal) {
+		this.modal = modal;
+	}		
 }
