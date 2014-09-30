@@ -17,14 +17,6 @@ function selectPicker() {
 	jQuery('.selectpicker').selectpicker();
 }
 
-
-function onSaveComplete(data) {
-	if (data.status == "success") {
-		fullReady();
-		return false;
-	}
-}
-
 function fullReady(){
 	readyTable();
 	basicReady();

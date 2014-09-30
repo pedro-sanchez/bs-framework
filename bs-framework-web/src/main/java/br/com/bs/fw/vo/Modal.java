@@ -1,20 +1,22 @@
 package br.com.bs.fw.vo;
 
+
 public class Modal {
 
 	private String url;
 
-	private Object managedBean;
+	private String data;
 
 	private String elementFocus;
 
-	public Modal(String url, Object managedBean) {
+	public Modal(String url) {
 		this.url = url;
-		this.managedBean = managedBean;
 	}
+	
 
-	public Modal(String url, Object managedBean, String elementFocus) {
-		this(url, managedBean);
+	public Modal(String url, String data, String elementFocus) {
+		this(url);
+		this.data = data;
 		this.elementFocus = elementFocus;
 	}
 
@@ -26,12 +28,12 @@ public class Modal {
 		this.url = url;
 	}
 
-	public Object getManagedBean() {
-		return managedBean;
+	public String getData() {
+		return data;
 	}
 
-	public void setManagedBean(Object managedBean) {
-		this.managedBean = managedBean;
+	public void setData(String data) {
+		this.data = data;
 	}
 
 	public String getElementFocus() {

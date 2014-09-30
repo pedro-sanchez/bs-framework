@@ -32,13 +32,18 @@
 		</h:panelGroup>
 		
 		<h:form styleClass="hide" prependId="false" >
-			<h:commandButton id="btnUpdateModal" style="display: none" action="#{mbSession.abrirModal}">		
+			<h:commandButton id="btnOpenModal" style="display: none" action="#{mbSession.openModal}">		
 				<f:ajax execute="@form" 
-						render="@this :modalDiv" onevent="onModalComplete" />
+						render="@this :modalDiv" onevent="onModalOpenComplete" />
+			</h:commandButton>
+			<h:commandButton id="btnCloseModal" style="display: none" action="#{mbSession.closeModal}">		
+				<f:ajax execute="@form" 
+						render="@this :modalDiv" onevent="onModalCloseComplete" />
 			</h:commandButton>
 		
 			<h:inputHidden id="modalUrl" value="#{mbSession.currentModalURL}"/>			
-			<!-- <h:inputHidden id="modalMB" value="#{mbSession.currentModalMB}"/> -->	
+			<h:inputHidden id="data" value="#{mbSession.oldModalData}"/>			
+			<h:inputHidden id="field" value="#{mbSession.oldModalField}"/>	
 		
 		</h:form>
 		

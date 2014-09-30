@@ -12,20 +12,24 @@ function onStageComplete(data) {
 }
 
 function openModalJSF(uri) {
-	jQuery('[id*="modalUrl"]').val(uri);
-	/*jQuery('[id*="modalMB"]').val(mb);*/
-	jQuery('[id*="btnUpdateModal"]').click();
+	openModalJSFStack(uri, null, null);
 	return false;
 }
 
+function openModalJSFStack(uri, data, update) {
+	jQuery('[id*="modalUrl"]').val(uri);
+	jQuery('[id*="data"]').val(data);
+	jQuery('[id*="field"]').val(update);
+	jQuery('[id*="btnOpenModal"]').click();
+	return false;
+}
 
-function onModalComplete(data) {
+function onModalOpenComplete(data) {
 	if (data.status == "success") {
 		openModal();
 		return false;
 	}
 }
-
 
 function openModal() {
 	jQuery('#myModal').modal('show');
@@ -33,7 +37,33 @@ function openModal() {
 	return false;
 }
 
-function closeModal(modalName) {
+function onSaveComplete(data) {
+	if (data.status == "success") {
+		closeModalJSF();
+		return false;
+	}
+}
+
+function onSavePlusComplete(data) {
+	if (data.status == "success") {
+		fullReady();
+		return false;
+	}
+}
+
+function closeModalJSF(){
+	closeModal();
+	jQuery('[id*="btnCloseModal"]').click();
+}
+
+function onModalCloseComplete(data) {
+	if (data.status == "success") {
+		//closeModal();
+		return false;
+	}
+}
+
+function closeModal() {
 	jQuery('#myModal').modal('hide');
 	fullReady();
 	return false;

@@ -6,7 +6,7 @@ import javax.ejb.Stateless;
 import br.com.bs.fw.business.impl.GenericBO;
 import br.com.bs.sistema.business.iface.IEstadoBO;
 import br.com.bs.sistema.entity.Estado;
-import br.com.bs.sistema.repository.impl.EstadoDAO;
+import br.com.bs.sistema.repository.EstadoDAO;
 
 @Local
 @Stateless

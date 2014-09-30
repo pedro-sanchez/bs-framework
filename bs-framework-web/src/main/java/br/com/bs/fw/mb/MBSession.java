@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Stack;
 
 import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
@@ -12,6 +13,7 @@ import javax.faces.bean.SessionScoped;
 import br.com.bs.fw.menubar.Menu;
 import br.com.bs.fw.menubar.MenuNode;
 import br.com.bs.fw.menubar.MenuWindow;
+import br.com.bs.fw.vo.Modal;
 
 @ManagedBean(name = "mbSession")
 @SessionScoped
@@ -28,23 +30,33 @@ public class MBSession extends MBUserAutentication implements Serializable {
 	private String currentPage = "paginas/home.xhtml";
 
 	private String currentModalURL = "blank.xhtml";
-	
-	private Object currentModalMB = null;
 
+	private String oldModalData = null;
+	
+	private String oldModalField = null;
+	
+	private Stack<Modal> modais = new Stack<Modal>();
+
+	public Modal top() {
+		return modais.lastElement();
+	}
+	
 	@Override
 	protected void onLoginSuccess() {
 		createMenu();
 		this.currentPage = "paginas/home.xhtml";
 		this.currentStage = "commonLayout.xhtml";
 		this.currentModalURL = "blank.xhtml";
-		this.currentModalMB = null;
+		this.oldModalData = null;
+		this.oldModalField = null;
 	}
 
 	@Override
 	protected void onEndSession() {
 		this.currentStage = "login.xhtml";
 		this.currentModalURL = "blank.xhtml";
-		this.currentModalMB = null;
+		this.oldModalData = null;
+		this.oldModalField = null;
 	}
 
 	@PostConstruct
@@ -56,9 +68,31 @@ public class MBSession extends MBUserAutentication implements Serializable {
 		}
 	}
 
-	public void abrirModal(){
-		System.out.println("abrirModal");
-	}	
+	public void openModal(){
+		if(!modais.isEmpty()){
+			top().setData(oldModalData);
+			top().setElementFocus(oldModalField);
+		}
+		
+		modais.push(new Modal(currentModalURL));
+	}
+	
+	public void closeModal(){
+		if(!modais.isEmpty()){
+			modais.pop();
+			if(!modais.isEmpty()){
+				currentModalURL = top().getUrl();
+				oldModalData = top().getData();
+				oldModalField = top().getElementFocus();
+			}
+			else{
+				this.currentModalURL = "blank.xhtml";
+				this.oldModalData = null;
+				this.oldModalField = null;
+			}
+		}
+	}
+		
 	
 	protected void buildMenu(Menu... menuItem) {
 		this.menuItem.clear();
@@ -115,12 +149,20 @@ public class MBSession extends MBUserAutentication implements Serializable {
 		this.currentModalURL = currentModalURL;
 	}
 
-	public Object getCurrentModalMB() {
-		return currentModalMB;
+	public String getOldModalData() {
+		return oldModalData;
 	}
 
-	public void setCurrentModalMB(Object currentModalMB) {
-		this.currentModalMB = currentModalMB;
+	public void setOldModalData(String oldModalData) {
+		this.oldModalData = oldModalData;
 	}
-	
+
+	public String getOldModalField() {
+		return oldModalField;
+	}
+
+	public void setOldModalField(String oldModalField) {
+		this.oldModalField = oldModalField;
+	}
+
 }

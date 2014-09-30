@@ -34,7 +34,7 @@
 	    			mb="#{mb}" action="savePlus" 
 	    			process="@form"	update="formEdit" 
 	    			rendered="#{mb.mode eq 'NEW'}"	    			
-	    			onevent="onSaveComplete"
+	    			onevent="onSavePlusComplete"
 	    			icon="fa fa-clipboard"	
 	    			styleClass="btn-primary"  />	
 	    			    		
@@ -42,7 +42,7 @@
 					value="fw.btn.cancel"
 	    			icon="glyphicon glyphicon-remove"
 					tooltip="fw.btn.cancel.tooltip"					
-	    			onclick="closeModal('myModal')"
+	    			onclick="closeModalJSF('myModal')"
 	    			styleClass="btn-danger"  />						
 	           	
 			</ui:define>

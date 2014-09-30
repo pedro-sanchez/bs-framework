@@ -1,4 +1,4 @@
-package br.com.bs.sistema.repository.impl;
+package br.com.bs.sistema.repository;
 
 import javax.persistence.Query;
 
