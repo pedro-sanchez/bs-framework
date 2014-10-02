@@ -21,7 +21,7 @@ public class PaginationResult<T> {
 
 	private Long size = 0L;
 
-	private GenericWrapper<T> wrapper;
+	private IGenericWrapper<T> wrapper;
 
 	public PaginationResult() {
 
@@ -125,12 +125,12 @@ public class PaginationResult<T> {
 	public void setCurrentPage(Integer currentPage) {
 		this.currentPage = currentPage;
 	}
-
-	public GenericWrapper<T> getWrapper() {
+	
+	public IGenericWrapper<T> getWrapper() {
 		return wrapper;
 	}
 
-	public void setWrapper(GenericWrapper<T> wrapper) {
+	public void setWrapper(IGenericWrapper<T> wrapper) {
 		this.wrapper = wrapper;
 	}
 

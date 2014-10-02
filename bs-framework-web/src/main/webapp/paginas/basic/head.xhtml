@@ -29,8 +29,9 @@
 		
 				
 				</h:form>
-				
-				<tags:menuBar mb="#{mbSession}"/>
+				<f:view transient="true" >
+					<tags:menuBar mb="#{mbSession}"/>
+				</f:view>
 				
 				<!-- exibir outro menu do usuário para sair -->
 			</h:panelGroup>
