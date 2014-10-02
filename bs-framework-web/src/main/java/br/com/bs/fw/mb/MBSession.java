@@ -7,15 +7,15 @@ import java.util.List;
 import java.util.Stack;
 
 import javax.annotation.PostConstruct;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.SessionScoped;
+import javax.enterprise.context.SessionScoped;
+import javax.inject.Named;
 
 import br.com.bs.fw.menubar.Menu;
 import br.com.bs.fw.menubar.MenuNode;
 import br.com.bs.fw.menubar.MenuWindow;
 import br.com.bs.fw.vo.Modal;
 
-@ManagedBean(name = "mbSession")
+@Named("mbSession")
 @SessionScoped
 public class MBSession extends MBUserAutentication implements Serializable {
 	/**

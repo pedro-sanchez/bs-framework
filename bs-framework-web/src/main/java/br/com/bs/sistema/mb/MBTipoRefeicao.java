@@ -3,15 +3,15 @@ package br.com.bs.sistema.mb;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.sistema.business.iface.ITipoRefeicaoBO;
 import br.com.bs.sistema.entity.TipoRefeicao;
 import br.com.bs.sistema.wrapper.TipoRefeicaoWrapper;
 
-@ManagedBean(name="mbTipoRefeicao")
+@Named("mbTipoRefeicao")
 @ViewScoped
 public class MBTipoRefeicao extends MBGeneric<TipoRefeicao, ITipoRefeicaoBO> implements Serializable {
 

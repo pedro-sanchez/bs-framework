@@ -3,8 +3,8 @@ package br.com.bs.sistema.mb;
 import java.io.Serializable;
 
 import javax.ejb.EJB;
-import javax.faces.bean.ManagedBean;
-import javax.faces.bean.ViewScoped;
+import javax.faces.view.ViewScoped;
+import javax.inject.Named;
 
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.fw.util.ObjectUtil;
@@ -12,7 +12,7 @@ import br.com.bs.sistema.business.iface.IUserBO;
 import br.com.bs.sistema.entity.User;
 import br.com.bs.sistema.wrapper.UserWrapper;
 
-@ManagedBean(name="mbUser")
+@Named("mbUser")
 @ViewScoped
 public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 
