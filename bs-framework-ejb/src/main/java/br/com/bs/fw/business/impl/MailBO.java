@@ -14,15 +14,17 @@ import javax.mail.internet.MimeMessage;
 import br.com.bs.fw.util.ObjectUtil;
 
 public class MailBO {
-	@Resource(name = "mail/mailSession")
+	
+	/*@Resource(name = "mail/mailSession")
 	private Session session;
 
 	
-	/**
+	*//**
 	 * @param subject
 	 * @param messageBody
 	 * @param emails um ou mais separados por virgula sem espaço
-	 */
+	 *//*
+	
 	@Asynchronous
 	public void sendMessage(String emails, String subject, String messageBody) {
 
@@ -43,4 +45,4 @@ public class MailBO {
 		} catch (MessagingException ex) {
 		}
 	}
-}
+*/}
