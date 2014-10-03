@@ -2,8 +2,8 @@ package br.com.bs.sistema.mb;
 
 import java.io.Serializable;
 
-import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.bs.fw.mb.MBGeneric;
@@ -18,7 +18,7 @@ public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 
 	private static final long serialVersionUID = -2433515164743414832L;
 	
-	@EJB
+	@Inject
 	private IUserBO userBO;
 	
 	public void init() {

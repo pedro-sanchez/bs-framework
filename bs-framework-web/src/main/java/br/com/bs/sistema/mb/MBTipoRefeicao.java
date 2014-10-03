@@ -2,8 +2,8 @@ package br.com.bs.sistema.mb;
 
 import java.io.Serializable;
 
-import javax.ejb.EJB;
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import br.com.bs.fw.mb.MBGeneric;
@@ -17,7 +17,7 @@ public class MBTipoRefeicao extends MBGeneric<TipoRefeicao, ITipoRefeicaoBO> imp
 
 	private static final long serialVersionUID = 1L;
 
-	@EJB
+	@Inject
 	private ITipoRefeicaoBO tipoRefeicaoBO;
 
 	public void init() {
