@@ -6,14 +6,14 @@
 	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
 	xmlns:tags="http://tags.com/facelets">
 	
-	<tags:editWindow title="user.title">
+	<tags:editWindow title="user.title" mb="#{mbUser}">
 		<ui:define name="content">	
 			<tags:inputText id="txtId" 
 				label="user.edit.txtId"
 				value="#{mbUser.entity.id}"	
 				disabled="true"		
 				autofocus="false"
-	    		rendered="#{mb.mode eq 'EDIT'}"/>
+	    		rendered="#{mbUser.mode eq 'EDIT'}"/>
 			
 			<tags:inputText id="txtNome" 
 				label="user.edit.txtNome"

@@ -1,28 +1,16 @@
 package br.com.bs.fw.business.impl;
 
-import java.util.Date;
-
-import javax.annotation.Resource;
-import javax.ejb.Asynchronous;
-import javax.mail.Message;
-import javax.mail.MessagingException;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-
-import br.com.bs.fw.util.ObjectUtil;
 
 public class MailBO {
-	@Resource(name = "mail/mailSession")
+/*	@Resource(name = "mail/mailSession")
 	private Session session;
 
 	
-	/**
+	*//**
 	 * @param subject
 	 * @param messageBody
 	 * @param emails um ou mais separados por virgula sem espaço
-	 */
+	 *//*
 	@Asynchronous
 	public void sendMessage(String emails, String subject, String messageBody) {
 
@@ -42,5 +30,5 @@ public class MailBO {
 
 		} catch (MessagingException ex) {
 		}
-	}
+	}*/
 }
