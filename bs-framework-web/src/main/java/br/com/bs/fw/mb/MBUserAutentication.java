@@ -1,7 +1,7 @@
 package br.com.bs.fw.mb;
 
+import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
-import javax.inject.Inject;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -15,7 +15,7 @@ public abstract class MBUserAutentication extends MBUtil{
 
 	private static final long serialVersionUID = 1L;
 
-	@Inject
+	@EJB
 	private IUserBO userBO;
 
 	private Login login = new Login();
