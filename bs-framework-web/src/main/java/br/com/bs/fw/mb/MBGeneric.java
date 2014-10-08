@@ -7,7 +7,7 @@ import javax.annotation.PostConstruct;
 import br.com.bs.fw.business.iface.IGenericBO;
 import br.com.bs.fw.entity.iface.IEntity;
 import br.com.bs.fw.enumeration.WindowModeEnum;
-import br.com.bs.fw.util.IGenericWrapper;
+import br.com.bs.fw.util.IGenericSearch;
 import br.com.bs.fw.util.PaginationResult;
 import br.com.bs.fw.util.ReflectionUtil;
 
@@ -24,7 +24,7 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 	
 	private WindowModeEnum mode;
 	
-	private IGenericWrapper<T> wrapper;
+	private IGenericSearch<T> wrapper;
 	
 	@SuppressWarnings("unchecked")
 	private T newEntity() {
@@ -165,11 +165,11 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 		this.selectedID = selectedID;
 	}
 		
-	public IGenericWrapper<T> getWrapper() {
+	public IGenericSearch<T> getWrapper() {
 		return wrapper;
 	}
 
-	public void setWrapper(IGenericWrapper<T> wrapper) {
+	public void setWrapper(IGenericSearch<T> wrapper) {
 		this.wrapper = wrapper;
 	}
 

@@ -9,7 +9,7 @@ import javax.faces.bean.ViewScoped;
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.sistema.business.iface.IEstadoBO;
 import br.com.bs.sistema.entity.Estado;
-import br.com.bs.sistema.wrapper.EstadoWrapper;
+import br.com.bs.sistema.search.EstadoSearch;
 
 @ManagedBean(name="mbEstado")
 @ViewScoped
@@ -22,7 +22,7 @@ public class MBEstado extends MBGeneric<Estado, IEstadoBO> implements Serializab
 	
 	public void init() {
 		System.out.println("init extendido jrebel2");
-		this.setWrapper(new EstadoWrapper());
+		this.setWrapper(new EstadoSearch());
 		setBo(estadoBO);
 	}
 

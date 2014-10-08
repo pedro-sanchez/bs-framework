@@ -9,7 +9,7 @@ import javax.faces.model.SelectItem;
 
 import br.com.bs.fw.enumeration.FilterType;
 
-public class GenericWrapper<T> {
+public class GenericSearch<T> {
 	
 	private StringBuilder query;
 	private Boolean count = Boolean.FALSE;

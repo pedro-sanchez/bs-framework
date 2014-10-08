@@ -1,5 +1,5 @@
 package br.com.bs.fw.util;
 
-public interface IGenericWrapper<T> {
+public interface IGenericSearch<T> {
 	public StringBuilder getSearch(Boolean count);
 }

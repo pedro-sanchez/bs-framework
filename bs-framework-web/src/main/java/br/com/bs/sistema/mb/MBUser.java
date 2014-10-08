@@ -10,7 +10,7 @@ import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.fw.util.ObjectUtil;
 import br.com.bs.sistema.business.iface.IUserBO;
 import br.com.bs.sistema.entity.User;
-import br.com.bs.sistema.wrapper.UserWrapper;
+import br.com.bs.sistema.search.UserSearch;
 
 @ManagedBean(name="mbUser")
 @ViewScoped
@@ -22,7 +22,7 @@ public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 	private IUserBO userBO;
 	
 	public void init() {
-		this.setWrapper(new UserWrapper());
+		this.setWrapper(new UserSearch());
 		setBo(userBO);
 	}
 	

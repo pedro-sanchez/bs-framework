@@ -7,7 +7,7 @@ import javax.persistence.Query;
 
 import br.com.bs.fw.entity.iface.IEntity;
 import br.com.bs.fw.repository.iface.IGenericDAO;
-import br.com.bs.fw.util.IGenericWrapper;
+import br.com.bs.fw.util.IGenericSearch;
 import br.com.bs.fw.util.PaginationResult;
 import br.com.bs.fw.util.ReflectionUtil;
 
@@ -34,7 +34,7 @@ public abstract class GenericDAO<T extends IEntity> implements IGenericDAO<T> {
 	@SuppressWarnings("unchecked")
 	public PaginationResult<T> findBy(PaginationResult<T> paginationResult) {
 		
-		IGenericWrapper<T> wrapper = paginationResult.getWrapper();
+		IGenericSearch<T> wrapper = paginationResult.getWrapper();
 		
 		Query query = em.createQuery(wrapper.getSearch(Boolean.FALSE).toString());
 
