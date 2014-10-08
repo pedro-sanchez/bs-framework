@@ -21,6 +21,7 @@ public class MBSession extends MBUserAutentication implements Serializable {
 	/**
 	 * 
 	 */
+	
 	private static final long serialVersionUID = -8771305167968602628L;
 
 	private List<Menu> menuItem = new ArrayList<>();
