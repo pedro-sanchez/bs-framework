@@ -9,14 +9,14 @@
 	<tags:editWindow title="estado.title" mb="#{mbEstado}">
 		<ui:define name="content">	
 			<tags:inputText id="txtId" 
-				label="estado.edit.txtId"
+				label="estado.edit.id"
 				value="#{mbEstado.entity.id}"	
 				disabled="true"		
 				autofocus="false"
 	    		rendered="#{mbEstado.mode eq 'EDIT'}"/>
 			
 			<tags:inputText id="txtNome" 
-				label="estado.edit.txtNome"
+				label="estado.edit.nome"
 				required="true"
 				value="#{mbEstado.entity.nome}"
 				autofocus="true"/>

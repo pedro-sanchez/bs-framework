@@ -9,20 +9,20 @@
 	<tags:editWindow title="user.title" mb="#{mbUser}">
 		<ui:define name="content">	
 			<tags:inputText id="txtId" 
-				label="user.edit.txtId"
+				label="user.edit.id"
 				value="#{mbUser.entity.id}"	
 				disabled="true"		
 				autofocus="false"
 	    		rendered="#{mbUser.mode eq 'EDIT'}"/>
 			
 			<tags:inputText id="txtNome" 
-				label="user.edit.txtNome"
+				label="user.edit.nome"
 				required="true"
 				value="#{mbUser.entity.nome}"
 				autofocus="true"/>
 			
 			<tags:inputText id="txtTelefone" 
-				label="user.edit.txtTelefone"
+				label="user.edit.telefone"
 				required="true"
 				value="#{mbUser.entity.telefone}"
 				oninput="mask(this,Telefone);"
@@ -30,25 +30,25 @@
 				
 				
 			<tags:inputText id="txtEmail" 
-				label="user.edit.txtEmail"
+				label="user.edit.email"
 				required="true"
 				value="#{mbUser.entity.email}"
 				autofocus="false"/>
 								
 			<tags:inputText id="txtLogin" 
-				label="user.edit.txtLogin"
+				label="user.edit.login"
 				required="true"
 				value="#{mbUser.entity.login}"
 				autofocus="false"/>
 								
 			<tags:inputSecret id="txtPassword" 
-				label="user.edit.txtPassword"
+				label="user.edit.password"
 				required="true"
 				value="#{mbUser.entity.senha}"
 				autofocus="false"/>
 								
 			<tags:inputSecret id="txtPasswordConfirm" 
-				label="user.edit.txtPasswordConfirm"
+				label="user.edit.passwordConfirm"
 				required="true"
 				value="#{mbUser.entity.senhaConfirmar}"
 				autofocus="false"/>

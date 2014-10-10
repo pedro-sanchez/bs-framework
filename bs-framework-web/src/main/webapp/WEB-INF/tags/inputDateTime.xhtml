@@ -1,0 +1,41 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:tags="http://tags.com/facelets">
+
+	<tags:input label="#{msg[label].concat(':')}" id="#{id}"
+		rendered="#{rendered}" required="#{required}"
+		iconLeft="#{iconLeft}" iconRight="#{iconRight}">
+		
+		<h:inputText id="#{id}" styleClass="form-control" value="#{value}"
+			title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.txt.tooltip'].concat(' ').concat(label.replaceAll(':','').toLowerCase()).concat('.')}"
+			pt:placeholder="#{(not empty placeholder)? msg[placeholder]: label.replaceAll(':','')}"
+			rendered="#{(empty rendered or rendered)}"
+			onchange="#{onchange}"
+			onkeydown="#{oninput}" 
+			onkeypress="#{oninput}"
+			onkeyup="#{oninput}"
+			disabled="#{not empty disabled and disabled}"
+			pt:data-toggle="tooltip" pt:data-placement="top"
+			pt:autofocus="#{autofocus}">
+				
+			<c:if test="#{(not empty required and required)}">
+				<f:passThroughAttribute name="required" value="#{required}"/>
+				<f:passThroughAttribute name="data-requiredMessage" value="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replaceAll(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"/>
+			</c:if>
+		</h:inputText>
+		
+		<ui:insert/>
+	</tags:input>
+
+<!--   <div id="datetimepicker1" class="input-append date"> -->
+<!--     <input data-format="dd/MM/yyyy hh:mm:ss" type="text"></input> -->
+<!--     <span class="add-on"> -->
+<!--       <i data-time-icon="icon-time" data-date-icon="icon-calendar"> -->
+<!--       </i> -->
+<!--     </span> -->
+<!--   </div> -->
+</ui:composition>
