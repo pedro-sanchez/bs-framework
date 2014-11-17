@@ -516,6 +516,12 @@
 		<tag-name>input</tag-name>
 		<source>tags/input.xhtml</source>
 		<attribute>
+			<name>styleClassGroup</name>
+			<description>styleClass do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
 			<name>label</name>
 			<description>label do input</description>
 			<required>true</required>
@@ -642,7 +648,52 @@
 			<type>string</type>
 		</attribute>
 	</tag>
-
+	<tag>
+		<tag-name>inputDate</tag-name>
+		<source>tags/inputDate.xhtml</source>
+		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<description>label do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<description>value do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconLeft</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconRight</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+	</tag>
 	<tag>
 		<tag-name>inputSecret</tag-name>
 		<source>tags/inputSecret.xhtml</source>

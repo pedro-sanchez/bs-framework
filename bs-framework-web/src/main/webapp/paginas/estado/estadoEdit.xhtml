@@ -15,6 +15,11 @@
 				autofocus="false"
 	    		rendered="#{mbEstado.mode eq 'EDIT'}"/>
 			
+			<tags:inputDate id="dtDate" 
+				label="estado.edit.date"
+				value="#{mbEstado.entity.date}"
+				/>
+			
 			<tags:inputText id="txtNome" 
 				label="estado.edit.nome"
 				required="true"

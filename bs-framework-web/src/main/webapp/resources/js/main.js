@@ -17,6 +17,15 @@ function selectPicker() {
 	jQuery('.selectpicker').selectpicker();
 }
 
+function datePicker() {
+	jQuery('.datepicker').datetimepicker({
+		pickDate: true,
+		pickTime: true,
+		format: 'dd/MM/yyyy hh:mm:ss',
+        language: 'pt-BR'
+    });
+}
+
 function fullReady(){
 	readyTable();
 	basicReady();
@@ -28,6 +37,7 @@ function basicReady(){
 	readyMessage();
 	toolTipStart();
 	selectPicker();
+	datePicker();
 	loadValidation();
 	return false;
 }

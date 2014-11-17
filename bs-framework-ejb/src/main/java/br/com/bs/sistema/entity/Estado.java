@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
 import br.com.bs.fw.entity.iface.IEntity;
@@ -27,6 +28,8 @@ public class Estado implements IEntity, Serializable{
 	@Column(name="NOME", length = 40)
 	private String nome;
 	
+	@Transient
+	private String date;
 	
 	public Estado(){
 		
@@ -54,6 +57,17 @@ public class Estado implements IEntity, Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
+
+	public String getDate() {
+		return date;
+	}
+
+	public void setDate(String date) {
+		System.out.println("input date");
+		System.out.println(date);
+		this.date = date;
+	}
+
 	
 	
 }

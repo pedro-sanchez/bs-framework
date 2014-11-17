@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<ui:composition xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+	xmlns:tags="http://tags.com/facelets">
+
+	<tags:input label="#{msg[label].concat(':')}" id="#{id}" styleClassGroup="date datepicker"
+		rendered="#{rendered}" required="#{required}"
+		iconLeft="#{iconLeft}" iconRight="glyphicon glyphicon-calendar">
+			
+		<h:inputText id="#{id}" pt:data-format="dd/MM/yyyy hh:mm:ss" styleClass="form-control" value="#{value}"
+			pt:placeholder="dd/MM/yyyy hh:mm:ss"/>
+		
+		<ui:define name="iconRightProperties">
+			<f:passThroughAttribute name="data-time-icon" value="fa fa-clock-o"/>
+			<f:passThroughAttribute name="data-date-icon" value="glyphicon glyphicon-calendar"/>
+		</ui:define>
+		
+		<ui:insert/>
+	</tags:input>
+
+</ui:composition>

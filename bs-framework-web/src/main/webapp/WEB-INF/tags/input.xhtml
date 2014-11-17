@@ -12,16 +12,20 @@
     	
     	<c:choose>
 			<c:when test="#{(not empty iconLeft or not empty iconRight)}">			
-				<h:panelGroup layout="block" styleClass="input-group">
+				<h:panelGroup layout="block" styleClass="input-group #{styleClassGroup}">
 					<c:if test="#{not empty iconLeft}">
 						<h:panelGroup  styleClass="input-group-addon">
-							<i class="#{iconLeft}"></i>
+							<h:panelGroup  styleClass="#{iconLeft}">
+								<ui:insert name="iconLeftProperties" />
+							</h:panelGroup>
 						</h:panelGroup>						
 					</c:if>
 	    			<ui:insert/>
 	    			<c:if test="#{not empty iconRight}">
 						<h:panelGroup  styleClass="input-group-addon">
-							<i class="#{iconRight}"></i>
+							<h:panelGroup  styleClass="#{iconRight}">
+								<ui:insert name="iconRightProperties" />
+							</h:panelGroup>
 						</h:panelGroup>						
 					</c:if>
 				</h:panelGroup>
