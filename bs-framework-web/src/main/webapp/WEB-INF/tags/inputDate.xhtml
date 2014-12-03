@@ -10,8 +10,8 @@
 		rendered="#{rendered}" required="#{required}"
 		iconLeft="#{iconLeft}" iconRight="glyphicon glyphicon-calendar">
 			
-		<h:inputText id="#{id}" pt:data-format="dd/MM/yyyy hh:mm:ss" styleClass="form-control" value="#{value}"
-			pt:placeholder="dd/MM/yyyy hh:mm:ss"/>
+		<h:inputText id="#{id}" pt:data-date-format="DD/MM/YYYY HH:mm" styleClass="form-control" value="#{value}"
+			pt:placeholder="dd/MM/yyyy HH:mm"/>
 		
 		<ui:define name="iconRightProperties">
 			<f:passThroughAttribute name="data-time-icon" value="fa fa-clock-o"/>

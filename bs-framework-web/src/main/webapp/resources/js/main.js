@@ -21,8 +21,8 @@ function datePicker() {
 	jQuery('.datepicker').datetimepicker({
 		pickDate: true,
 		pickTime: true,
-		format: 'dd/MM/yyyy hh:mm:ss',
-        language: 'pt-BR'
+		dateFormat: 'DD/MM/YYYY HH:mm',
+        language: 'pt-br'
     });
 }
 
