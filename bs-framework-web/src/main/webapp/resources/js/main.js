@@ -20,9 +20,18 @@ function selectPicker() {
 function datePicker() {
 	jQuery('.datepicker').datetimepicker({
 		pickDate: true,
+		pickTime: false,
+		format: 'dd/MM/yyyy',
+        language: 'pt-br'
+    });
+}
+
+function datePickerTime() {
+	jQuery('.datePickerTime').datetimepicker({
+		pickDate: true,
 		pickTime: true,
 		format: 'dd/MM/yyyy hh:mm:ss',
-        language: 'pt-BR'
+        language: 'pt-br'
     });
 }
 

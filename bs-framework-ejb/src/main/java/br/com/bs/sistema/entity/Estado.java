@@ -1,6 +1,7 @@
 package br.com.bs.sistema.entity;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -29,7 +30,7 @@ public class Estado implements IEntity, Serializable{
 	private String nome;
 	
 	@Transient
-	private String date;
+	private Date date;
 	
 	public Estado(){
 		
@@ -58,11 +59,11 @@ public class Estado implements IEntity, Serializable{
 		this.nome = nome;
 	}
 
-	public String getDate() {
+	public Date getDate() {
 		return date;
 	}
 
-	public void setDate(String date) {
+	public void setDate(Date date) {
 		System.out.println("input date");
 		System.out.println(date);
 		this.date = date;
