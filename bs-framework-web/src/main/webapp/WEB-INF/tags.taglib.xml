@@ -813,12 +813,6 @@
 			<type>boolean</type>
 		</attribute>
 		<attribute>
-			<name>value</name>
-			<description>value do input</description>
-			<required>true</required>
-			<type>string</type>
-		</attribute>
-		<attribute>
 			<name>itens</name>
 			<description>itens do input</description>
 			<required>true</required>

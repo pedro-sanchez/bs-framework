@@ -12,16 +12,15 @@
 		
 		<h:selectOneMenu id="#{id}"
 			styleClass="form-control selectpicker" 
-			value="#{value}"
 			rendered="#{(empty rendered or rendered)}"
 			onchange="#{onchange}"
 			disabled="#{not empty disabled and disabled}"
 			pt:data-toggle="tooltip" pt:data-placement="top"
 			pt:autofocus="#{autofocus}"
 			title="#{(not empty tooltip)? msg[tooltip].concat('.'): msg['fw.generic.cmb.tooltip'].concat('.')}"
-			pt:data-style="btn-primary">
+			pt:data-style="btn-default">
 			
-			<f:selectItem itemLabel="#{not empty selectMessage)?msg[selectMessage]: msg['fw.generic.cmb.select']}" itemValue=""/>
+			<f:selectItem itemLabel="#{(not empty selectMessage)?msg[selectMessage]: msg['fw.generic.cmb.select']}" itemValue=""/>
 			<f:selectItems value="#{itens}" />
 			
 			<c:if test="#{(not empty required and required)}">
