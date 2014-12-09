@@ -10,6 +10,7 @@ import br.com.bs.fw.repository.iface.IGenericDAO;
 import br.com.bs.fw.util.IGenericSearch;
 import br.com.bs.fw.util.PaginationResult;
 import br.com.bs.fw.util.ReflectionUtil;
+import br.com.bs.fw.util.SearchUtil;
 
 public abstract class GenericDAO<T extends IEntity> implements IGenericDAO<T> {
 
@@ -53,12 +54,6 @@ public abstract class GenericDAO<T extends IEntity> implements IGenericDAO<T> {
 		return paginationResult;
 	}
 
-	@Override
-	public List<T> findReduceBy(Long id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
 	private StringBuilder buildHQL(Boolean count){
 		StringBuilder hql = new StringBuilder();
 
@@ -78,31 +73,31 @@ public abstract class GenericDAO<T extends IEntity> implements IGenericDAO<T> {
 	}
 
 	@Override
-	@SuppressWarnings("unchecked")
 	public List<T> findAll() {
-
 		StringBuilder hql = buildHQL(Boolean.FALSE);
-		
-		Query query = em.createQuery(hql.toString());
-		List<T> lista = query.getResultList();
-		
-		return lista;
-		
-
+		return executeQueryList(hql);		
 	}
 
 	@Override
-	public List<T> findReduceAll() {
-		// TODO Auto-generated method stub
-		return null;
+	public List<T> findAllReduce() {
+		StringBuilder hql = SearchUtil.queryFindByReduce(ReflectionUtil.getTClass(getClass()));
+		return executeQueryList(hql);
 	}
 
+	@SuppressWarnings("unchecked")
+	private List<T> executeQueryList(StringBuilder hql) {
+		Query query = em.createQuery(hql.toString());
+		return query.getResultList();
+	}
+
+	@Deprecated
 	@Override
 	public List<T> searchBy(Object... parameters) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
+	@Deprecated
 	@Override
 	public List<T> searchReduceBy(Object... parameters) {
 		// TODO Auto-generated method stub

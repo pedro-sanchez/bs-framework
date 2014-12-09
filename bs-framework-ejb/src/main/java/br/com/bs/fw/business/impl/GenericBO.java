@@ -34,18 +34,13 @@ public class GenericBO<T extends IEntity, DAO extends IGenericDAO<T>> implements
 	}
 
 	@Override
-	public List<T> findReduceBy(Long id) {
-		return getDao().findReduceBy(id);
-	}
-
-	@Override
 	public List<T> findAll() {		
 		return getDao().findAll();
 	}
 
 	@Override
-	public List<T> findReduceAll() {
-		return getDao().findReduceAll();
+	public List<T> findAllReduce() {
+		return getDao().findAllReduce();
 	}
 
 	@Override

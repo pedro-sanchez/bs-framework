@@ -11,14 +11,14 @@ public interface IGenericBO<T extends IEntity> {
 
 	PaginationResult<T> findBy(PaginationResult<T> paginationResult);
 	
-	List<T> findReduceBy(Long id);
-
 	List<T> findAll();
 	
-	List<T> findReduceAll();	
+	List<T> findAllReduce();	
 
+	@Deprecated
 	List<T> searchBy(Object... parameters);
-	
+
+	@Deprecated
 	List<T> searchReduceBy(Object... parameters);
 
 	void beforeInsert(T entity);

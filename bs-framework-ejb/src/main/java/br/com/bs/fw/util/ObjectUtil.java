@@ -11,6 +11,19 @@ public class ObjectUtil {
 	public static Boolean isNull(Object object) {
 		return object == null;
 	}
+	
+	public static StringBuilder toCamelCase(String value, Boolean firstUpper) {
+		StringBuilder builder = new StringBuilder();
+		if(firstUpper){
+			builder.append(value.substring(0, 1).toUpperCase());
+		}
+		else{
+			builder.append(value.substring(0, 1).toLowerCase());
+		}
+		builder.append(value.substring(1));
+		return builder;
+	}
+
 
 	/**
 	 * @param object

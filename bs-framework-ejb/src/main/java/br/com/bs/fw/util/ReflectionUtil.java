@@ -1,6 +1,7 @@
 package br.com.bs.fw.util;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.ParameterizedType;
 import java.lang.reflect.Type;
@@ -108,5 +109,27 @@ public class ReflectionUtil {
             throw new RuntimeException("Não foi possível obter a propriedade'id' do item",ex);  
         }  
     }  
+
+	public static String buildGetMethod(String campo) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("get");
+		builder.append(ObjectUtil.toCamelCase(campo, Boolean.TRUE));
+		return builder.toString();
+	}
+	
+	public static String buildSetMethod(String campo) {
+		StringBuilder builder = new StringBuilder();
+		builder.append("set");
+		builder.append(ObjectUtil.toCamelCase(campo, Boolean.TRUE));
+		return builder.toString();
+	}
+	
+	public static Object executeMethod(String methodName, Object object, Object... parameters) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		Method method = object.getClass().getMethod(methodName);
+		return method.invoke(object, parameters);
+	}
+	
+	
+
 }
 

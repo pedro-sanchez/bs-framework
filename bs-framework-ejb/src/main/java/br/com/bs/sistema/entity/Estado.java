@@ -13,6 +13,7 @@ import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotNull;
 
+import br.com.bs.fw.annotation.Name;
 import br.com.bs.fw.entity.iface.IEntity;
 
 @Entity
@@ -25,6 +26,7 @@ public class Estado implements IEntity, Serializable{
 	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq_estado")
 	private Long id;
 	
+	@Name
 	@NotNull
 	@Column(name="NOME", length = 40)
 	private String nome;
