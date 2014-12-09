@@ -14,17 +14,18 @@
 				disabled="true"		
 				autofocus="false"
 	    		rendered="#{mbEstado.mode eq 'EDIT'}"/>
-			
-			<tags:inputDate id="dtDate" 
-				label="estado.edit.date"
-				value="#{mbEstado.entity.date}"
-				/>
-			
+						
 			<tags:inputText id="txtNome" 
 				label="estado.edit.nome"
 				required="true"
 				value="#{mbEstado.entity.nome}"
 				autofocus="true"/>
+			
+			<tags:selectOneMenu id="cmbEstado" 
+				autofocus="false" 
+				value=#{mbEstado.entity.nome} 
+				label="estado.edit.estado"
+				itens="#{mbEstado.findAllReduce}"/>
 		</ui:define>	
 	</tags:editWindow>
 

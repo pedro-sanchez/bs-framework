@@ -30,9 +30,12 @@ public class Estado implements IEntity, Serializable{
 	@NotNull
 	@Column(name="NOME", length = 40)
 	private String nome;
-	
+
 	@Transient
 	private Date date;
+	
+	@Transient
+	private Estado estado;
 	
 	public Estado(){
 		
@@ -71,6 +74,15 @@ public class Estado implements IEntity, Serializable{
 		this.date = date;
 	}
 
+	public Estado getEstado() {
+		return estado;
+	}
+
+	public void setEstado(Estado estado) {
+		this.estado = estado;
+	}
+
+	
 	
 	
 }

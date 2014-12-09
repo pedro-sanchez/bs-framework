@@ -783,5 +783,90 @@
 			<type>string</type>
 		</attribute>
 	</tag>
+	
+	
+	<tag>
+		<tag-name>selectOneMenu</tag-name>
+		<source>tags/selectOneMenu.xhtml</source>
+		<attribute>
+			<name>id</name>
+			<description>id do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>label</name>
+			<description>label do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>rendered</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>required</name>
+			<description>define se será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<description>value do input</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>itens</name>
+			<description>itens do input</description>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>tooltip</name>
+			<description>tooltip i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>		
+		<attribute>
+			<name>onchange</name>
+			<description>onchange do inputText</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>disabled</name>
+			<description>disabled do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>requiredMessage</name>
+			<description>requiredMessage i18n do inputtext</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>autofocus</name>
+			<description>autofocus do input</description>
+			<required>true</required>
+			<type>boolean</type>
+			<default-value>false</default-value>
+		</attribute>
+		<attribute>
+			<name>iconLeft</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
+			<name>iconRight</name>
+			<description>icone do button</description>
+			<required>false</required>
+			<type>string</type>
+		</attribute>
+	</tag>
+	
 
 </facelet-taglib>
