@@ -110,17 +110,17 @@ public class ReflectionUtil {
         }  
     }  
 
-	public static String buildGetMethod(String campo) {
+	public static String buildGetMethod(String fieldName) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("get");
-		builder.append(ObjectUtil.toCamelCase(campo, Boolean.TRUE));
+		builder.append(ObjectUtil.toCamelCase(fieldName, Boolean.TRUE));
 		return builder.toString();
 	}
 	
-	public static String buildSetMethod(String campo) {
+	public static String buildSetMethod(String fieldName) {
 		StringBuilder builder = new StringBuilder();
 		builder.append("set");
-		builder.append(ObjectUtil.toCamelCase(campo, Boolean.TRUE));
+		builder.append(ObjectUtil.toCamelCase(fieldName, Boolean.TRUE));
 		return builder.toString();
 	}
 	
@@ -128,6 +128,12 @@ public class ReflectionUtil {
 		Method method = object.getClass().getMethod(methodName);
 		return method.invoke(object, parameters);
 	}
+	
+	public static Object executeGetMethod(String fieldName, Object object) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		String methodName = ReflectionUtil.buildGetMethod(fieldName);
+		return ReflectionUtil.executeMethod(methodName, object);
+	}
+	
 	
 	
 

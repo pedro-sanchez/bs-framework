@@ -27,23 +27,15 @@ public abstract class MBUtil implements Serializable {
 		addInfoMessage(null, infoMessage);
 	}
 	
-	
-
-	
-	private void addMessage(String componentId, String errorMessage, Severity severity){
-		
+	private void addMessage(String componentId, String message, Severity severity){
 		FacesContext context = FacesContext.getCurrentInstance();  
-        
 
-		FacesMessage message =  new FacesMessage(errorMessage);
-		message.setSeverity(severity);
+		FacesMessage facesMessage =  new FacesMessage(message);
+		facesMessage.setSeverity(severity);
 		
-        context.addMessage(componentId, message);  
+        context.addMessage(componentId, facesMessage);  
         
         FacesContext.getCurrentInstance().getPartialViewContext().getRenderIds().add("globalMessage");
-		
-		
 	}
-	
 
 }

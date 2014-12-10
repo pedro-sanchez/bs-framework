@@ -1,20 +1,15 @@
 package br.com.bs.fw.mb;
 
 import java.io.Serializable;
-import java.util.List;
-import java.util.Map;
 
 import javax.annotation.PostConstruct;
-import javax.faces.model.SelectItem;
 
 import br.com.bs.fw.business.iface.IGenericBO;
 import br.com.bs.fw.entity.iface.IEntity;
 import br.com.bs.fw.enumeration.WindowModeEnum;
 import br.com.bs.fw.util.IGenericSearch;
-import br.com.bs.fw.util.JSFUtils;
 import br.com.bs.fw.util.PaginationResult;
 import br.com.bs.fw.util.ReflectionUtil;
-import br.com.bs.fw.util.SearchUtil;
 
 public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> extends MBUtil implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -87,13 +82,6 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 	protected void findAll(){
 		paginationResult.setWrapper(wrapper);
 		paginationResult = bo.findBy(paginationResult);
-	}
-
-	public List<SelectItem> findAllReduce(){
-		List<T> listResult = bo.findAllReduce();
-		Class<? extends IEntity> clazz = ReflectionUtil.getTClass(this.getClass());
-		Map<String, String> map = SearchUtil.getIdName(clazz);
-		return JSFUtils.getSelectItens(listResult, map);
 	}
 	
 	protected T findBy(Long id){

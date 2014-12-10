@@ -1,12 +1,15 @@
 package br.com.bs.sistema.mb;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
+import javax.faces.model.SelectItem;
 
 import br.com.bs.fw.mb.MBGeneric;
+import br.com.bs.fw.util.JSFUtils;
 import br.com.bs.sistema.business.iface.IEstadoBO;
 import br.com.bs.sistema.entity.Estado;
 import br.com.bs.sistema.search.EstadoSearch;
@@ -26,6 +29,9 @@ public class MBEstado extends MBGeneric<Estado, IEstadoBO> implements Serializab
 		setBo(estadoBO);
 	}
 
-	
+	public List<SelectItem> findAllReduce(){
+		List<Estado> listResult = estadoBO.findAllReduce();
+		return JSFUtils.getSelectItens(listResult);
+	}	
 	
 }

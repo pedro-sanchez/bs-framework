@@ -39,7 +39,9 @@ function selectRowGrid() {
 	var oldId = null;
 	var entityId = null;
 	jQuery('tr').click(function() {
-
+		if(!jQuery(this).parent().parent().hasClass('table-selection')){
+			return false;
+		}
 		if (oldRow != null) {
 			if (oldId % 2 == 0) {
 				oldRow.css({
@@ -70,7 +72,7 @@ function selectRowGrid() {
 		});
 
 		setSelectedID(entityId);
-
+		return false;
 	});
 
 	jQuery('tr').dblclick(function() {
