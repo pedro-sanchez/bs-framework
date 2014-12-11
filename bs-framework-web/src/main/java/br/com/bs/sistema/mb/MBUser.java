@@ -6,6 +6,7 @@ import javax.ejb.EJB;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
+import br.com.bs.fw.business.iface.IMailBO;
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.fw.util.ObjectUtil;
 import br.com.bs.sistema.business.iface.IUserBO;
@@ -20,6 +21,9 @@ public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 	
 	@EJB
 	private IUserBO userBO;
+	
+	@EJB
+	private IMailBO mailBO;
 	
 	public void init() {
 		this.setWrapper(new UserSearch());
@@ -52,9 +56,9 @@ public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 		mensagemEmail.append("\n\n");
 
 		mensagemEmail.append("Atenciosamente,\n");
-		mensagemEmail.append("Equipe BortoSan");
+		mensagemEmail.append("Equipe FutureGo");
 		
-		//mailBO.sendMessage(email, "Recuperação de Senha", mensagemEmail.toString());
+		mailBO.sendMessage(email, "Recuperação de Senha", mensagemEmail.toString());
 
 	}
 
