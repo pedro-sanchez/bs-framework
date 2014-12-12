@@ -1,5 +1,8 @@
 package br.com.bs.fw.util;
 
+import java.io.UnsupportedEncodingException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.Collection;
 
 /**
@@ -79,4 +82,20 @@ public class ObjectUtil {
 		}
 		return object1.equals(object2);
 	}
+	
+
+	public static String toMD5(String value) throws NoSuchAlgorithmException, UnsupportedEncodingException {
+		return convertByteToHex(MessageDigest.getInstance("MD5").digest(value.getBytes("UTF-8")));
+	}
+	
+	private static String convertByteToHex(byte[] byteData) {
+
+	    StringBuilder sb = new StringBuilder();
+	    for (int i = 0; i < byteData.length; i++) {
+	        sb.append(Integer.toString((byteData[i] & 0xff) + 0x100, 16).substring(1));
+	    }
+
+	    return sb.toString();
+	}
+	
 }

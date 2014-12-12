@@ -35,7 +35,7 @@ public class User implements IEntity, Serializable {
 	@Column(name = "login", length = 30, nullable = false)
 	private String login;
 
-	@Column(name = "password", length = 30, nullable = false)
+	@Column(name = "password", length = 32, nullable = false)
 	private String senha;
 	
 	@Transient

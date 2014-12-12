@@ -88,7 +88,7 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 		return bo.findBy(id);
 	}
 	
-	private void saveBO(){
+	protected void saveBO(){
 		bo.save(entity);
 
 		if(WindowModeEnum.NEW.equals(this.mode)){

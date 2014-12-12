@@ -1,5 +1,7 @@
 package br.com.bs.fw.vo;
 
+import br.com.bs.fw.util.ObjectUtil;
+
 public class Login {
 	private String login;
 
@@ -20,7 +22,11 @@ public class Login {
 	}
 
 	public void setSenha(String senha) {
-		this.senha = senha;
+		try {
+			this.senha = ObjectUtil.toMD5(senha);
+		} catch (Exception e) {
+			this.senha = null;
+		}
 	}
 
 	public Boolean getRememberMe() {
