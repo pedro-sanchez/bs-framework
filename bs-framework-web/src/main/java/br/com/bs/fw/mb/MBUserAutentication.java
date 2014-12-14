@@ -14,13 +14,25 @@ import br.com.bs.sistema.entity.User;
 public abstract class MBUserAutentication extends MBUtil{
 
 	private static final long serialVersionUID = 1L;
-
+	
 	@EJB
 	private IUserBO userBO;
 
 	private Login login = new Login();
 	
+	private String email = "";
+	
 	private User currentUser = null;
+	
+	public void forgot(){
+		if (ObjectUtil.isEmpty(email)) {
+			addErrorMessage("Informe o email do usuário!");
+			return;
+		}
+		
+		userBO.forgot(email);
+		addInfoMessage("Email de recuperação enviado com sucesso!");
+	}
 	
 	public void authenticate() throws Exception {
 		if (ObjectUtil.hasEmpty(login.getLogin(), login.getSenha())) {
@@ -126,4 +138,12 @@ public abstract class MBUserAutentication extends MBUtil{
 		this.login = login;
 	}
 
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	
 }

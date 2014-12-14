@@ -63,6 +63,12 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
+			<name>showTitleImage</name>
+			<description>define se imagem do title será rendenizado ou não</description>
+			<required>false</required>
+			<type>boolean</type>
+		</attribute>
+		<attribute>
 			<name>titleImage</name>
 			<description>nome do resource que ficará como imagem do title da janela</description>
 			<required>false</required>

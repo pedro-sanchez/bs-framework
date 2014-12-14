@@ -20,11 +20,11 @@
 				<h:form id="formEdit" pt:role="form">
 
 					<h:panelGroup layout="block" styleClass="modal-header well">
-						<button type="button" class="close" onclick="closeModalJSF();">×</button>
 							
 						<h:panelGroup layout="block" styleClass="row clearfix">
 							<h:panelGroup layout="block" styleClass="col-xs-12">
 								<h:panelGroup layout="block"
+									rendered="#{(empty showTitleImage or showTitleImage)}"
 									style="width:24px !important; float:left;">
 									<h:graphicImage
 										value="#{(empty titleImage)?'/resources/img/window.png': titleImage}"
@@ -33,6 +33,8 @@
 								<h:panelGroup layout="block" style="float:left; padding-left:3px;">
 									<h4 class="modal-title"  id="myModalLabel">#{msg[title]}</h4>
 								</h:panelGroup>
+								
+								<button type="button" class="float:right; close" onclick="closeModalJSF();">×</button>
 							</h:panelGroup>
 
 						</h:panelGroup>

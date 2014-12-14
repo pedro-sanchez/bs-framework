@@ -7,4 +7,6 @@ public interface IUserBO extends IGenericBO<User> {
 	User findByLoginAndSenha(String login, String senha);
 
 	User findByEmail(String email);
+
+	void forgot(String email);
 }

@@ -6,16 +6,10 @@
 	xmlns:tags="http://tags.com/facelets">	
 		
 		<tags:modal title="#{title}" >  
-			
-			
 			<ui:define name="content">		
-				
-  							
 		        <ui:insert name="content" />
-		        
 			</ui:define>	 
 			<ui:define name="buttonBar">		
-								
     			<tags:button   
     			 	id="btnSave"   			
 					value="fw.btn.save"
@@ -25,7 +19,6 @@
 	    			onevent="onSaveComplete"
 	    			icon="glyphicon glyphicon-floppy-disk"
 	    			styleClass="btn-success"  />	
-	    			
 	    				    		
     			<tags:button 
     			 	id="btnSavePlus"   
@@ -44,7 +37,6 @@
 					tooltip="fw.btn.cancel.tooltip"					
 	    			onclick="closeModalJSF('myModal')"
 	    			styleClass="btn-danger"  />						
-	           	
 			</ui:define>
 		</tags:modal>	   
 </ui:composition>

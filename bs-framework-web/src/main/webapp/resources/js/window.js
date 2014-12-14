@@ -38,6 +38,11 @@ function openModal() {
 }
 
 function onSaveComplete(data) {
+	onSuccessCloseModal(data);
+}
+
+
+function onSuccessCloseModal(data) {
 	if (data.status == "success") {
 		closeModalJSF();
 		return false;
