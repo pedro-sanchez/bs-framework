@@ -38,45 +38,51 @@
 			</h:panelGroup>
 	
 			<h:panelGroup id="buttonBar" layout="block" styleClass="panel-footer modal-footer">
-			
+				
 	    		<ui:insert name="buttons" >	
-	    			
-	    			<tags:button 
-	    				id="btnNew"
-	    				value="fw.btn.new"
-		    			tooltip="fw.btn.new.tooltip"
-		    			mb="#{mb}" action="create" 
-		    			update="@none"
-		    			styleClass="btn-success"		    			
-		    			icon="glyphicon glyphicon-file"
-		    			onevent="openModalOnComplete" />	
-	    		
-	    			<tags:button 
-	    				id="btnEdit"
-	    				value="fw.btn.edit"
-		    			tooltip="fw.btn.edit.tooltip"
-		    			mb="#{mb}" action="edit" 
-		    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
-		    			process="@form"	update="@none" 
-		    			styleClass="btn-primary btn-edit"
-		    			icon="glyphicon glyphicon-pencil"
-		    			onevent="openModalOnComplete" />	
-					
-					<tags:confirmButton 
-						id="btnConfirm"
-						value="fw.btn.delete"
-						tooltip="fw.btn.delete.tooltip"
-		    			process="@none"	update="@none"		    			
-		    			styleClass="btn-danger"
-		    			mb="#{mb}" actionYes="delete" 
-		    			updateYes=":listForm:divTable"
-		    			oneventYes="onCompletConfirm"
-		    			icon="glyphicon glyphicon-trash"
-		    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
-		    			title="fw.title.delete"
-		    			message="fw.msg.delete"
-		    		/>		
-								
+		    		<tags:div styleClass="pull-left">
+	    				<ui:insert name="customButtons" >
+	    				</ui:insert>	
+					</tags:div>
+					<tags:div styleClass="pull-right">
+						<ui:insert name="mainButtons" >
+							<tags:button 
+			    				id="btnNew"
+			    				value="fw.btn.new"
+				    			tooltip="fw.btn.new.tooltip"
+				    			mb="#{mb}" action="create" 
+				    			update="@none"
+				    			styleClass="btn-success"		    			
+				    			icon="glyphicon glyphicon-file"
+				    			onevent="openModalOnComplete" />	
+			    		
+			    			<tags:button 
+			    				id="btnEdit"
+			    				value="fw.btn.edit"
+				    			tooltip="fw.btn.edit.tooltip"
+				    			mb="#{mb}" action="edit" 
+				    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
+				    			process="@form"	update="@none" 
+				    			styleClass="btn-primary btn-edit"
+				    			icon="glyphicon glyphicon-pencil"
+				    			onevent="openModalOnComplete" />	
+							
+							<tags:confirmButton 
+								id="btnConfirm"
+								value="fw.btn.delete"
+								tooltip="fw.btn.delete.tooltip"
+				    			process="@none"	update="@none"		    			
+				    			styleClass="btn-danger"
+				    			mb="#{mb}" actionYes="delete" 
+				    			updateYes=":listForm:divTable"
+				    			oneventYes="onCompletConfirm"
+				    			icon="glyphicon glyphicon-trash"
+				    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
+				    			title="fw.title.delete"
+				    			message="fw.msg.delete"
+				    		/>
+						</ui:insert>
+					</tags:div>
 				</ui:insert>
 			</h:panelGroup>
 		</h:panelGroup>

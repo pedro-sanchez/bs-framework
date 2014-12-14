@@ -75,7 +75,7 @@ function closeModal() {
 }
 
 function confirmDialog(title, message, yes, yesTitle, no, noTitle, yesLinkID,
-		noLinkID) {
+		noLinkID, id) {
 
 	bootbox.dialog({
 		message : message,
@@ -87,6 +87,11 @@ function confirmDialog(title, message, yes, yesTitle, no, noTitle, yesLinkID,
 				className : "btn-success",
 				callback : function() {
 					if (yesLinkID != '') {
+						
+						if(yesLinkID == 'ConfirmLinkYes'){
+							yesLinkID = yesLinkID + id;
+						}
+							
 						jQuery('[id*="' + yesLinkID + '"]').click();
 					}
 				}
@@ -97,6 +102,9 @@ function confirmDialog(title, message, yes, yesTitle, no, noTitle, yesLinkID,
 				className : "btn-danger",
 				callback : function() {
 					if (noLinkID != '') {
+						if(noLinkID == 'ConfirmLinkNo'){
+							noLinkID = noLinkID + id;
+						}
 						alert(noLinkID);
 					}
 				}

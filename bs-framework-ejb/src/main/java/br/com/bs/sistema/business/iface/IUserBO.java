@@ -9,4 +9,6 @@ public interface IUserBO extends IGenericBO<User> {
 	User findByEmail(String email);
 
 	void forgot(String email);
+
+	void reset(Long entityId);
 }

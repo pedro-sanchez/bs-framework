@@ -17,5 +17,22 @@
 				value="#{entity.nome}"		
 			/>
 		</ui:define>
+		<ui:define name="customButtons">
+			<tags:confirmButton 
+				id="btnReset"
+				value="user.btn.reset"
+				tooltip="user.btn.reset.tooltip"
+    			process="@none"	update="@none"		    			
+    			styleClass="btn-warning"
+    			mb="#{mb}" actionYes="reset" 
+    			updateYes=":listForm:divTable"
+    			oneventYes="onCompletConfirm"
+    			icon="glyphicon glyphicon-lock"
+    			disabled="#{empty mb.selectedID or mb.selectedID lt 0}"
+    			title="user.title.reset"
+    			message="user.msg.reset"
+    		/>
+		</ui:define>
+		
 	</tags:listWindow>
 </ui:composition>

@@ -95,7 +95,6 @@ public class UserBO extends GenericBO<User, UserDAO> implements IUserBO {
 	
 	@Override
 	public void forgot(String email){
-		System.out.println(email);
 		User user = findByEmail(email);
 		
 		if(ObjectUtil.isEmpty(user)){
@@ -128,4 +127,37 @@ public class UserBO extends GenericBO<User, UserDAO> implements IUserBO {
 		
 	}
 	
+	@Override
+	public void reset(Long entityId) {
+		User user = findBy(entityId);
+		
+		if(ObjectUtil.isEmpty(user)){
+			return;
+		}
+		
+		String userPassword = generateNewPassword(user);
+		
+		//obter nome do sistema pelo arquivo de properties
+		StringBuilder mensagemEmail =  new StringBuilder();
+
+		mensagemEmail.append("Olá ");
+		mensagemEmail.append(user.getNome());
+		mensagemEmail.append(",\n\n");
+		
+		mensagemEmail.append("Seu acesso foi modificado!\n\n");
+
+		mensagemEmail.append("Usuário: ");
+		mensagemEmail.append(user.getLogin());
+		mensagemEmail.append("\n");
+
+		mensagemEmail.append("Senha: ");
+		mensagemEmail.append(userPassword);
+		mensagemEmail.append("\n\n");
+
+		mensagemEmail.append("Atenciosamente,\n");
+		mensagemEmail.append("Equipe FutureGo");
+		
+		mailBO.sendMessage(user.getEmail(), "Regeração de Senha", mensagemEmail.toString());
+
+	}
 }

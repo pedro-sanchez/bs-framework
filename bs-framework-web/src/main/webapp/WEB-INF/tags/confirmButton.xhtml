@@ -8,16 +8,16 @@
 		<tags:buttonJS id="#{id}" value="#{value}"  
 			tooltip="#{tooltip}" icon="#{icon}"	
     		rendered="#{(empty rendered or rendered)}" 		
-   			disabled="#{disabled}" onclick="confirmDialog('#{msg[title]}', '#{msg[message]}', '#{(not empty yes)?msg[yes]:msg['fw.btn.yes']}', '#{(not empty yesTooltip)?msg[yesTooltip]:msg['fw.btn.yes.tooltip']}', '#{(not empty no)?msg[no]:msg['fw.btn.no']}', '#{(not empty noTooltip)?msg[noTooltip]:msg['fw.btn.no.tooltip']}', '#{(not empty actionYes)?'ConfirmLinkYes':''}', '#{(not empty actionNo)?'ConfirmLinkNo':''}');"
+   			disabled="#{disabled}" onclick="confirmDialog('#{msg[title]}', '#{msg[message]}', '#{(not empty yes)?msg[yes]:msg['fw.btn.yes']}', '#{(not empty yesTooltip)?msg[yesTooltip]:msg['fw.btn.yes.tooltip']}', '#{(not empty no)?msg[no]:msg['fw.btn.no']}', '#{(not empty noTooltip)?msg[noTooltip]:msg['fw.btn.no.tooltip']}', '#{(not empty actionYes)?'ConfirmLinkYes':''}', '#{(not empty actionNo)?'ConfirmLinkNo':''}', '#{id}');"
    			styleClass="#{styleClass}"  />	
 										
 		<h:panelGroup layout="block" style="display:none;"> 
-			<h:commandLink id="ConfirmLinkYes" action="#{mb[actionYes]}" style="display:none;" rendered="#{not empty actionYes}" >
+			<h:commandLink id="ConfirmLinkYes#{id}" action="#{mb[actionYes]}" style="display:none;" rendered="#{not empty actionYes}" >
 				<f:ajax execute="#{(not empty processYes)? processYes: '@this'}" 
 					render="#{(not empty updateYes)? updateYes : '@form'}"  onevent="#{oneventYes}" />
 			</h:commandLink>
 					
-			<h:commandLink id="ConfirmLinkNo" action="#{mb[actionNo]}" style="display:none;" rendered="#{not empty actionNo}" >
+			<h:commandLink id="ConfirmLinkNo#{id}" action="#{mb[actionNo]}" style="display:none;" rendered="#{not empty actionNo}" >
 				<f:ajax execute="#{(not empty processNo)? processNo: '@this'}" 
 					render="#{(not empty updateNo)? updateNo : '@form'}"  onevent="#{oneventNo}"/>
 			</h:commandLink>

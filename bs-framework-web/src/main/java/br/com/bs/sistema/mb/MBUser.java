@@ -25,4 +25,8 @@ public class MBUser extends MBGeneric<User, IUserBO> implements Serializable{
 		setBo(userBO);
 	}
 	
+	public void reset() {
+		getBo().reset(getSelectedID());
+	}
+	
 }
