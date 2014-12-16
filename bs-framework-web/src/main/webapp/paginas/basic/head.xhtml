@@ -16,40 +16,40 @@
 						class="icon-bar"></span>
 				</button>
 				<a class="navbar-brand" href="#">FW</a>
-				
+
 			</h:panelGroup>
-			
-			<h:panelGroup layout="block" styleClass="navbar-collapse collapse navbar-left">
-				<h:form styleClass="navbar-form navbar-left hide" prependId="false" >
-					<h:commandButton id="btnUpdateStage" style="display: none">		
-						<f:ajax execute="@form" 
-								render="@this :stage" onevent="onStageComplete" />
+
+			<h:panelGroup layout="block"
+				styleClass="navbar-collapse collapse navbar-left">
+				<h:form styleClass="navbar-form navbar-left hide" prependId="false">
+					<h:commandButton id="btnUpdateStage" style="display: none">
+						<f:ajax execute="@form" render="@this :stage"
+							onevent="onStageComplete" />
 					</h:commandButton>
-					<h:inputHidden id="selectedPage" value="#{mbSession.currentPage}"/>
-		
-				
+					<h:inputHidden id="selectedPage" value="#{mbSession.currentPage}" />
+
+
 				</h:form>
-				
-				<tags:menuBar mb="#{mbSession}"/>
-				
+
+				<tags:menuBar mb="#{mbSession}" />
+
 				<!-- exibir outro menu do usuário para sair -->
 			</h:panelGroup>
-			
-			<h:panelGroup layout="block" styleClass="navbar-right hidden-sm hidden-xs">
-				<h:form styleClass="navbar-form navbar-right" prependId="false" >
-							
-	    			<tags:button   
-	    			 	id="btnLogOutMobile"   			
-						value="fw.btn.logOut"
-						tooltip="fw.btn.logOut.tooltip"	
-		    			mb="#{mbSession}" action="endSession" 
-		    			process="@this"	update=":mainDiv" 
-		    			icon="glyphicon glyphicon-off"
-		    			styleClass="btn-danger navbar-nav"  />	
-	    			
+
+			<h:panelGroup layout="block"
+				styleClass="navbar-right hidden-sm hidden-xs">
+				<h:form styleClass="navbar-form navbar-right" prependId="false">
+					
+					<a class="btn btn-link popover-user-a" tabindex="0" role="button"
+						data-toggle="popover" data-placement="bottom" data-html="true"
+						data-trigger="focus"
+						data-content-id="popover-usuario" data-container="body"> <span
+						class="glyphicon glyphicon-user"></span>
+					</a>
+
 				</h:form>
 			</h:panelGroup>
-			
+
 
 			<!--/.navbar-collapse -->
 		</h:panelGroup>

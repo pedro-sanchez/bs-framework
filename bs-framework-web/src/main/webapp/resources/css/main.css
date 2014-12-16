@@ -144,3 +144,30 @@ body {
 	margin-bottom: 0px;
 }
 
+.popover-content{
+    padding-right: 0px;
+    padding-left: 0px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    width:400px !important;
+    max-width: 400px !important;
+}
+
+.popover{
+    width: 400px !important;
+    max-width: 400px !important;
+}
+
+
+.btn-user{
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.padding-user{
+	padding: 5px;
+}
+
+.action-user{
+	min-width: 220px;
+}

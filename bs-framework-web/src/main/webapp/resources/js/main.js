@@ -35,6 +35,17 @@ function datePickerTime() {
     });
 }
 
+function userOptions(){
+	var contentId = $('.popover-user-a').attr('data-content-id');
+	$('.popover-user-a').popover({
+		html : true,
+		content : function() {
+			return $('#' + contentId).html();
+		}
+	});
+}
+
+
 function fullReady(){
 	readyTable();
 	basicReady();
@@ -43,6 +54,7 @@ function fullReady(){
 
 
 function basicReady(){
+	userOptions();
 	readyMessage();
 	toolTipStart();
 	selectPicker();
@@ -50,4 +62,9 @@ function basicReady(){
 	loadValidation();
 	return false;
 }
+
+$(function () {
+	fullReady();
+});
+
 

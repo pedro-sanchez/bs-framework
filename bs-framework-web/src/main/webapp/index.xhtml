@@ -7,7 +7,8 @@
 	xmlns:h="http://xmlns.jcp.org/jsf/html"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
 	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+	xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+	xmlns:tags="http://tags.com/facelets">
 	<!--<![endif]-->
 	<h:head>
 	
@@ -51,6 +52,60 @@
 		<h:panelGroup layout="block" id="modalDiv">
 			<ui:include src="#{mbSession.currentModalURL}"/>
 		</h:panelGroup>
+		
+		<h:form prependId="false">
+			<div class="container">
+				<div class="hide " id="popover-usuario">
+					<div class="row">
+						<div class="col-md-12">
+							<span class="pull-left padding-user">
+								<div class="thumbnail">
+									<span class="glyphicon glyphicon-user"
+										style="width: 100px; height: 100px; font-size: 100px;"></span>
+									<img src="http://placehold.it/100x100"
+										class="hide img-responsive img-thumbnail"></img>
+									<div class="text-center">
+										<a class=" hide btn btn-default">Alterar</a>
+									</div>
+								</div>
+							</span> <span class="pull-right action-user padding-user">
+								<p>
+									<b>Nome do Usuário</b>
+								</p>
+								<p>user.mail@gmail.com</p>
+								<div class="row">
+									<div class="col-md-12 btn-user" draggable="true">
+										<a class="btn btn-block btn-warning"><span
+											class="glyphicon glyphicon-lock padding-user"></span>Redefinir
+											Senha</a>
+									</div>
+								</div>
+								<div class="row hide">
+									<div class="col-md-12 btn-user" draggable="true">
+										<a class="btn btn-block btn-primary"><span
+											class="glyphicon glyphicon-adjust padding-user"></span>Preferências</a>
+									</div>
+								</div>
+							</span>
+						</div>
+					</div>
+	
+					<div class="panel-footer " style="height: 50px;" >
+						<div class="pull-right">
+			    			<tags:button   
+			    			 	id="btnLogOutMobile"   			
+								value="fw.btn.logOut"
+								tooltip="fw.btn.logOut.tooltip"	
+				    			mb="#{mbSession}" action="endSession" 
+				    			process="@this"	update=":mainDiv" 
+				    			icon="glyphicon glyphicon-off"
+				    			styleClass="btn-danger navbar-nav"  />	
+						</div>
+					</div>
+				</div>
+			
+			</div>
+		</h:form>
 		
 		<ui:include src="script.xhtml"/>
 	</h:body>
