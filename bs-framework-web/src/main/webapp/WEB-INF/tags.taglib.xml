@@ -801,6 +801,12 @@
 			<type>string</type>
 		</attribute>
 		<attribute>
+			<name>value</name>
+			<description>valor que será exibido</description>
+			<required>true</required>
+			<type>string</type>
+		</attribute>
+		<attribute>
 			<name>label</name>
 			<description>label do input</description>
 			<required>true</required>
@@ -822,6 +828,12 @@
 			<name>itens</name>
 			<description>itens do input</description>
 			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>customConverter</name>
+			<description>custom converter do select</description>
+			<required>false</required>
+			<type>string</type>
 		</attribute>
 		<attribute>
 			<name>tooltip</name>

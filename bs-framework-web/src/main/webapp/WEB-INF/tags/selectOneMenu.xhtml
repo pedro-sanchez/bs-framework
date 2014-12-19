@@ -14,6 +14,7 @@
 			styleClass="form-control selectpicker" 
 			rendered="#{(empty rendered or rendered)}"
 			onchange="#{onchange}"
+			value="#{value}"
 			disabled="#{not empty disabled and disabled}"
 			pt:data-toggle="tooltip" pt:data-placement="top"
 			pt:autofocus="#{autofocus}"
@@ -27,8 +28,16 @@
 				<f:passThroughAttribute name="required" value="#{required}"/>
 				<f:passThroughAttribute name="data-requiredMessage" value="#{(not empty requiredMessage)? msg[requiredMessage]: msg['fw.generic.txt.requiredMessageBegin'].concat(' ').concat(label.replaceAll(':',' ').toLowerCase()).concat( msg['fw.generic.txt.requiredMessageEnd'])}"/>
 			</c:if>
+			
+			<c:if test="#{(empty customConverter)}">
+				<f:converter converterId="genericEntityConverter"/>
+			</c:if>
+			
+			<c:if test="#{(not empty customConverter)}">
+				<f:converter converterId="#{customConverter}"/>
+			</c:if>
+			<ui:insert/>
 		</h:selectOneMenu>
-		<ui:insert/>
 	</tags:input>
 	
 </ui:composition>

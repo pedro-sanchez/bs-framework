@@ -59,7 +59,7 @@ public class JSFUtils {
 		
 		Object itemValue = ReflectionUtil.executeGetMethod(value, object);
 
-		return new SelectItem(itemValue, label.toString());
+		return new SelectItem(object, label.toString());
 	}
 
 	public static List<SelectItem> getSelectItems(String value, List<? extends IEntity> list, String... fields) {

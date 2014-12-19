@@ -45,7 +45,7 @@ public class UserDAO extends GenericDAO<User> {
 		hql.append("Select u from User u ");
 		hql.append(" where u.email = :email ");
 		hql.append(" and u.ativo = :ativo ");
-
+				
 		Query query = getEm().createQuery(hql.toString());
 
 		query.setParameter("email", email);

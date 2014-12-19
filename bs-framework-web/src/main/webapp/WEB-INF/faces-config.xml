@@ -13,6 +13,10 @@
 			<var>msg</var>
 		</resource-bundle>
 	</application>
+	
+	<lifecycle>
+	    <phase-listener>br.com.bs.fw.listener.LifeCycleListener</phase-listener>
+	</lifecycle>
 </faces-config>
 
 	
