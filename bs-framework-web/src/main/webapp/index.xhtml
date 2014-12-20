@@ -54,45 +54,54 @@
 		</h:panelGroup>
 		
 		<h:form prependId="false">
-			<div class="container">
-				<div class="hide " id="popover-usuario">
-					<div class="row">
-						<div class="col-md-12">
-							<span class="pull-left padding-user">
-								<div class="thumbnail" >
-									<span class="glyphicon glyphicon-user"
-										style="width: 100px; height: 100px; font-size: 100px;"></span>
-									<img src="http://placehold.it/100x100"
-										class="hide img-responsive img-thumbnail"></img>
-									<div class="text-center">
-										<a class=" hide btn btn-default">Alterar</a>
-									</div>
-								</div>
-							</span> 
-							<span class="pull-right action-user padding-user">
-								<p>
-									<b>Nome do Usuário</b>
-								</p>
-								<p>user.mail@gmail.com</p>
-								<div class="row">
-									<div class="col-md-12 btn-user" draggable="true">
-										<a class="btn btn-block btn-warning"><span
-											class="glyphicon glyphicon-lock padding-user"></span>Redefinir
-											Senha</a>
-									</div>
-								</div>
-								<div class="row hide">
-									<div class="col-md-12 btn-user" draggable="true">
-										<a class="btn btn-block btn-primary"><span
-											class="glyphicon glyphicon-adjust padding-user"></span>Preferências</a>
-									</div>
-								</div>
-							</span>
-						</div>
-					</div>
-	
-					<div class="panel-footer " style="height: 50px;" >
-						<div class="pull-right">
+			<tags:div styleClass="container">
+				<h:panelGroup id="popover-usuario" layout="block" styleClass="hide">
+					<tags:div styleClass="row">
+						<tags:div styleClass="col-md-12">
+							<h:panelGroup styleClass="pull-left padding-user">
+								<tags:div styleClass="thumbnail">
+									<h:panelGroup styleClass="glyphicon glyphicon-user"
+										style="width: 100px; height: 100px; font-size: 100px;"/>
+									<!-- <img src="http://placehold.it/100x100"
+										class="hide img-responsive img-thumbnail"></img> -->
+									<tags:div styleClass="text-center">
+										<tags:buttonJS id="btnChangeImage" 
+											value="fw.btn.edit"
+											tooltip="fw.btn.edit.tooltip"					
+							    			styleClass="btn-default hide"  />
+									</tags:div>
+								</tags:div>
+							</h:panelGroup>
+							<h:panelGroup styleClass="pull-right action-user padding-user">
+								<h:outputLabel value="#{mbSession.currentUser.nome}"/>
+								<BR />
+								<h:outputText value="#{mbSession.currentUser.email}"/>
+								
+								<tags:div styleClass="row">
+									<tags:div styleClass="col-md-12 btn-user">
+						    			<tags:buttonJS id="btnChangePassword" 
+											value="fw.btn.changePassword"
+							    			icon="glyphicon glyphicon-lock padding-user"
+											tooltip="fw.btn.changePassword.tooltip"					
+							    			onclick="openModalJSF('changePassword.xhtml');"
+							    			styleClass="btn-warning btn-user"  />
+									</tags:div>
+								</tags:div>
+								
+								<tags:div styleClass="row hide">
+									<tags:div styleClass="col-md-12 btn-user">
+										<tags:buttonJS id="btnPreferences" 
+											value="fw.btn.userPreferences"
+							    			icon="glyphicon glyphicon-adjust padding-user"
+											tooltip="fw.btn.userPreferences"					
+							    			styleClass="btn-primary btn-user"  />
+									</tags:div>
+								</tags:div>
+							</h:panelGroup>
+						</tags:div>
+					</tags:div>
+					<tags:div styleClass="panel-footer footer-menu-user" >
+						<tags:div styleClass="pull-right">
 			    			<tags:button   
 			    			 	id="btnLogOutMobile"   			
 								value="fw.btn.logOut"
@@ -101,11 +110,10 @@
 				    			process="@this"	update=":mainDiv" 
 				    			icon="glyphicon glyphicon-off"
 				    			styleClass="btn-danger navbar-nav"  />	
-						</div>
-					</div>
-				</div>
-			
-			</div>
+						</tags:div>
+					</tags:div>
+				</h:panelGroup>			
+			</tags:div>
 		</h:form>
 		
 		<ui:include src="script.xhtml"/>

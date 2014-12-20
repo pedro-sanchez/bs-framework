@@ -129,6 +129,14 @@ public abstract class MBUserAutentication extends MBUtil{
 		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(senhaCookie);
 		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(rememberCookie);
 	}
+	
+	public User getCurrentUser() {
+		return currentUser;
+	}
+
+	public void setCurrentUser(User currentUser) {
+		this.currentUser = currentUser;
+	}
 
 	public Login getLogin() {
 		return login;
