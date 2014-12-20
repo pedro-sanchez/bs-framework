@@ -8,6 +8,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.faces.model.SelectItem;
 
+import br.com.bs.fw.enumeration.WindowModeEnum;
 import br.com.bs.fw.mb.MBGeneric;
 import br.com.bs.fw.util.JSFUtils;
 import br.com.bs.sistema.business.iface.IEstadoBO;
@@ -32,6 +33,10 @@ public class MBEstado extends MBGeneric<Estado, IEstadoBO> implements Serializab
 	public List<SelectItem> findAllReduce(){
 		List<Estado> listResult = estadoBO.findAllReduce();
 		return JSFUtils.getSelectItens(listResult);
-	}	
+	}
+	
+	public List<SelectItem> listMode(){
+		return JSFUtils.enumSelectItens(false, WindowModeEnum.values());
+	}
 	
 }

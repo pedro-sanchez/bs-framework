@@ -43,11 +43,13 @@ public class GenericBO<T extends IEntity, DAO extends IGenericDAO<T>> implements
 		return getDao().findAllReduce();
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<T> searchBy(Object... parameters) {
 		return getDao().searchBy(parameters);
 	}
 
+	@SuppressWarnings("deprecation")
 	@Override
 	public List<T> searchReduceBy(Object... parameters) {
 		return getDao().searchReduceBy(parameters);

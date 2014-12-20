@@ -15,6 +15,7 @@ import javax.validation.constraints.NotNull;
 
 import br.com.bs.fw.annotation.Name;
 import br.com.bs.fw.entity.iface.IEntity;
+import br.com.bs.fw.enumeration.WindowModeEnum;
 
 @Entity
 @Table(name = "estado", schema = "public")
@@ -35,7 +36,7 @@ public class Estado implements IEntity, Serializable{
 	private Date date;
 	
 	@Transient
-	private Estado estado;
+	private WindowModeEnum mode;
 	
 	public Estado(){
 		
@@ -74,12 +75,14 @@ public class Estado implements IEntity, Serializable{
 		this.date = date;
 	}
 
-	public Estado getEstado() {
-		return estado;
+	
+
+	public WindowModeEnum getMode() {
+		return mode;
 	}
 
-	public void setEstado(Estado estado) {
-		this.estado = estado;
+	public void setMode(WindowModeEnum mode) {
+		this.mode = mode;
 	}
 
 	@Override

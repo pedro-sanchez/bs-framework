@@ -33,6 +33,11 @@ public class GenericEntityConverter implements Converter {
 				return null;
 			}
 		}
+		if (value instanceof Enum<?>) {
+			String name = ((Enum<?>) value).name();
+			uiComponent.getAttributes().put(name, value);
+			return name;
+		}
 
 		String id = null;
 		try {

@@ -7,8 +7,6 @@ import java.util.UUID;
 import javax.ejb.EJB;
 import javax.ejb.Local;
 import javax.ejb.Stateless;
-import javax.transaction.Transactional;
-import javax.transaction.Transactional.TxType;
 
 import br.com.bs.fw.business.iface.IMailBO;
 import br.com.bs.fw.business.impl.GenericBO;

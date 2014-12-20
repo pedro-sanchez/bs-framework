@@ -34,11 +34,11 @@ public class JSFUtils {
 
 	}
 
-	public static SelectItem getSelectItem(String value, Object object, String... fields) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-		return getSelectItem(value, "-", object, fields);
+	public static SelectItem getSelectItem(Object object, String... fields) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+		return getSelectItem("-", object, fields);
 	}
 	
-	public static SelectItem getSelectItem(String value, String separator, Object object, String... fields) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+	public static SelectItem getSelectItem(String separator, Object object, String... fields) throws NoSuchMethodException, SecurityException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 		StringBuilder label = new StringBuilder();
 		if (ObjectUtil.isEmpty(separator)) {
 			separator = "-";
@@ -57,20 +57,18 @@ public class JSFUtils {
 			}
 		}
 		
-		Object itemValue = ReflectionUtil.executeGetMethod(value, object);
-
 		return new SelectItem(object, label.toString());
 	}
 
-	public static List<SelectItem> getSelectItems(String value, List<? extends IEntity> list, String... fields) {
-		return getSelectItems(value, "-", list, fields);
+	public static List<SelectItem> getSelectItems(List<? extends IEntity> list, String... fields) {
+		return getSelectItems("-", list, fields);
 	}
 	
-	public static List<SelectItem> getSelectItems(String value, String separator, List<? extends IEntity> list, String... fields) {
+	public static List<SelectItem> getSelectItems(String separator, List<? extends IEntity> list, String... fields) {
 		List<SelectItem> result = new ArrayList<>();
 		try {
 			for (Object object : list) {
-				result.add(getSelectItem(value, separator, object, fields));
+				result.add(getSelectItem(separator, object, fields));
 			}
 		} catch (NoSuchMethodException | SecurityException
 				| IllegalAccessException | IllegalArgumentException
@@ -86,7 +84,7 @@ public class JSFUtils {
 		ArrayList<SelectItem> result = new ArrayList<SelectItem>();
 
 		for (E enumObject : enums) {
-			result.add(new SelectItem(enumObject.name(), getEnumLabel(enumObject)));
+			result.add(new SelectItem(enumObject, getEnumLabel(enumObject)));
 		}
 
 		if (sort) {

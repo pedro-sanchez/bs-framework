@@ -23,9 +23,9 @@
 				
 			<tags:selectOneMenu id="cmbEstado" 
 				autofocus="false" 
-				value="#{mbEstado.entity.estado}"
+				value="#{mbEstado.entity.mode}"
 				label="estado.edit.estado"
-				itens="#{mbEstado.findAllReduce()}"/>
+				itens="#{mbEstado.listMode()}"/>
 		</ui:define>	
 	</tags:editWindow>
 
