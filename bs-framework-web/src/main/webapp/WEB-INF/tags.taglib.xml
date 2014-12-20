@@ -842,14 +842,14 @@
 			<type>string</type>
 		</attribute>		
 		<attribute>
-			<name>onchange</name>
-			<description>onchange do inputText</description>
+			<name>disabled</name>
+			<description>disabled do button</description>
 			<required>false</required>
 			<type>string</type>
 		</attribute>
 		<attribute>
-			<name>disabled</name>
-			<description>disabled do button</description>
+			<name>selectMessage</name>
+			<description>requiredMessage i18n do inputtext</description>
 			<required>false</required>
 			<type>string</type>
 		</attribute>

@@ -7,13 +7,12 @@
 	xmlns:tags="http://tags.com/facelets">
 
 	<tags:input label="#{msg[label].concat(':')}" id="#{id}"
-		rendered="#{rendered}" required="#{required}"
+		rendered="#{(empty rendered or rendered)}" required="#{required}"
 		iconLeft="#{iconLeft}" iconRight="#{iconRight}">
 		
 		<h:selectOneMenu id="#{id}"
 			styleClass="form-control selectpicker" 
 			rendered="#{(empty rendered or rendered)}"
-			onchange="#{onchange}"
 			value="#{value}"
 			disabled="#{not empty disabled and disabled}"
 			pt:data-toggle="tooltip" pt:data-placement="top"
