@@ -8,8 +8,7 @@
 
    		<h:commandLink    		
    			type="button" 
-   			styleClass="btn 
-   			#{(not empty disabled and disabled)? 'disabled': ''} #{styleClass}"  
+   			styleClass="btn #{(not empty disabled and disabled)? 'disabled': ''} #{styleClass}"  
    			id="#{id}" 
     		title="#{msg[tooltip]}" 
     		pt:data-toggle="tooltip"
@@ -25,5 +24,6 @@
 				<i class="#{icon}" style="padding-right: 3px;"></i>
 			</c:if>
 			#{msg[value]}
+			<ui:insert/>
 		</h:commandLink>
 </ui:composition>

@@ -1,5 +1,8 @@
 package br.com.bs.fw.mb;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
+
 import javax.ejb.EJB;
 import javax.faces.context.FacesContext;
 import javax.servlet.http.Cookie;
@@ -7,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import br.com.bs.fw.util.ObjectUtil;
+import br.com.bs.fw.vo.ChangePassword;
 import br.com.bs.fw.vo.Login;
 import br.com.bs.sistema.business.iface.IUserBO;
 import br.com.bs.sistema.entity.User;
@@ -19,6 +23,8 @@ public abstract class MBUserAutentication extends MBUtil{
 	private IUserBO userBO;
 
 	private Login login = new Login();
+
+	private ChangePassword changePassword = new ChangePassword();
 	
 	private String email = "";
 	
@@ -46,7 +52,7 @@ public abstract class MBUserAutentication extends MBUtil{
 			onLoginSuccess();
 		} else {
 			login.setSenha(null);
-			addErrorMessage("Login ou Senha  não conferem!\nVerefique os dados informados");
+			addErrorMessage("Login ou Senha  não conferem!\nVerifique os dados informados");
 		}
 	}
 	
@@ -130,6 +136,34 @@ public abstract class MBUserAutentication extends MBUtil{
 		((HttpServletResponse) (context.getExternalContext().getResponse())).addCookie(rememberCookie);
 	}
 	
+	public void startChangePassword(){
+		changePassword = new ChangePassword();
+	}
+	
+	public void doChangePassword() throws NoSuchAlgorithmException, UnsupportedEncodingException{
+		String validationKeys = changePassword.validate();
+		if(!validationKeys.isEmpty()){
+			addErrorMessage(validationKeys);
+			return ;
+		}
+
+		String currentPassword = ObjectUtil.toMD5(changePassword.getCurrentPassword());
+		
+		if (!ObjectUtil.isEqual(currentPassword, currentUser.getSenha())) {
+			addErrorMessage("fw.passwordChange.currentPassword.error");
+			return ;
+		}
+		
+		String newPassword = ObjectUtil.toMD5(changePassword.getNewPassword());
+		currentUser.setSenha(newPassword);
+		
+		currentUser = userBO.save(currentUser);
+		
+		changePassword = new ChangePassword();
+		
+		addInfoMessage("fw.passwordChange.success");
+	}
+	
 	public User getCurrentUser() {
 		return currentUser;
 	}
@@ -153,5 +187,12 @@ public abstract class MBUserAutentication extends MBUtil{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	
+
+	public ChangePassword getChangePassword() {
+		return changePassword;
+	}
+
+	public void setChangePassword(ChangePassword changePassword) {
+		this.changePassword = changePassword;
+	}
 }
