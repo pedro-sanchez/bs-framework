@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import br.com.bs.fw.entity.iface.IEntity;
 
@@ -37,13 +36,13 @@ public class User implements IEntity, Serializable {
 
 	@Column(name = "password", length = 32, nullable = false)
 	private String senha;
-	
-	@Transient
-	private String senhaConfirmar;
 
 	@Column(name = "ativo", nullable = false)
 	private Boolean ativo = Boolean.TRUE;
 
+	@Column(name = "FIRST_ACCESS", nullable = false)
+	private Boolean firstAccess = Boolean.TRUE;
+	
 	public User() {
 
 	}
@@ -95,14 +94,6 @@ public class User implements IEntity, Serializable {
 	public void setSenha(String senha) {
 		this.senha = senha;
 	}
-	
-	public String getSenhaConfirmar() {
-		return senhaConfirmar;
-	}
-
-	public void setSenhaConfirmar(String senhaConfirmar) {
-		this.senhaConfirmar = senhaConfirmar;
-	}
 
 	public Boolean getAtivo() {
 		return ativo;
@@ -111,12 +102,20 @@ public class User implements IEntity, Serializable {
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
 	}
+	
+	public Boolean getFirstAccess() {
+		return firstAccess;
+	}
+
+	public void setFirstAccess(Boolean firstAccess) {
+		this.firstAccess = firstAccess;
+	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((getId() == null) ? 0 : getId().hashCode());
 		return result;
 	}
 
@@ -129,10 +128,10 @@ public class User implements IEntity, Serializable {
 		if (getClass() != obj.getClass())
 			return false;
 		User other = (User) obj;
-		if (id == null) {
-			if (other.id != null)
+		if (getId() == null) {
+			if (other.getId() != null)
 				return false;
-		} else if (!id.equals(other.id))
+		} else if (!getId().equals(other.getId()))
 			return false;
 		return true;
 	}

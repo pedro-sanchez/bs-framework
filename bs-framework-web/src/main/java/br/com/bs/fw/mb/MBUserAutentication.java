@@ -157,6 +157,10 @@ public abstract class MBUserAutentication extends MBUtil{
 		String newPassword = ObjectUtil.toMD5(changePassword.getNewPassword());
 		currentUser.setSenha(newPassword);
 		
+		if(currentUser.getFirstAccess()){
+			currentUser.setFirstAccess(Boolean.FALSE);
+		}
+		
 		currentUser = userBO.save(currentUser);
 		
 		changePassword = new ChangePassword();

@@ -35,6 +35,21 @@ function datePickerTime() {
     });
 }
 
+function updateUserOptions(){
+	jQuery('[id*="btnUserInfo"]').click();
+	$('.popover-user-a').popover('destroy');
+	return false;
+}
+
+
+function onUpdateUserOptionsComplete(data) {
+	if (data.status == "success") {
+		userOptions();
+		$('.popover-user-a').popover('show');
+		return false;
+	}
+}
+
 function userOptions(){
 	var contentId = $('.popover-user-a').attr('data-content-id');
 	$('.popover-user-a').popover({

@@ -39,9 +39,13 @@
 					<a class="btn btn-link popover-user-a" tabindex="0" role="button"
 						data-toggle="popover" data-placement="bottom" data-html="true"
 						data-trigger="focus"
+						onclick="updateUserOptions();"
 						data-content-id="popover-usuario" data-container="body"> <span
 						class="glyphicon glyphicon-user"></span>
 					</a>
+					<h:commandButton id="btnUserInfo" style="display: none">
+						<f:ajax execute="@form" render="@this :popover-usuario" onevent="onUpdateUserOptionsComplete" />
+					</h:commandButton>
 				</h:form>
 			</tags:div>
 			<!--/.navbar-collapse -->
