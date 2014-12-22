@@ -6,31 +6,41 @@ import javax.faces.application.FacesMessage;
 import javax.faces.application.FacesMessage.Severity;
 import javax.faces.context.FacesContext;
 
+import br.com.bs.fw.util.JSFUtils;
+
 public abstract class MBUtil implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	/**Messages*/
 
-	protected void addErrorMessage(String componentId, String errorMessage){
-		addMessage(componentId, errorMessage, FacesMessage.SEVERITY_ERROR);
+	protected void addErrorMessage(String componentId, String messageErrorKey){
+		addMessage(componentId, messageErrorKey, FacesMessage.SEVERITY_ERROR);
 	}
 
-	protected void addErrorMessage(String errorMessage){
-		addErrorMessage(null, errorMessage);
+	protected void addErrorMessage(String messageErrorKey){
+		addErrorMessage(null, messageErrorKey);
 	}
 
-	protected void addInfoMessage(String componentId, String infoMessage){
-		addMessage(componentId, infoMessage, FacesMessage.SEVERITY_INFO);
+	protected void addSuccessMessage(String componentId, String messageSuccessKey){
+		addMessage(componentId, messageSuccessKey, FacesMessage.SEVERITY_INFO);
 	}
 
-	protected void addInfoMessage(String infoMessage){
-		addInfoMessage(null, infoMessage);
+	protected void addSuccessMessage(String messageSuccessKey){
+		addSuccessMessage(null, messageSuccessKey);
 	}
 	
-	private void addMessage(String componentId, String message, Severity severity){
+	protected void addInfoMessage(String componentId, String messageInfoKey){
+		addMessage(componentId, messageInfoKey, FacesMessage.SEVERITY_WARN);
+	}
+
+	protected void addInfoMessage(String messageInfoKey){
+		addSuccessMessage(null, messageInfoKey);
+	}
+	
+	private void addMessage(String componentId, String key, Severity severity){
 		FacesContext context = FacesContext.getCurrentInstance();  
 
-		FacesMessage facesMessage =  new FacesMessage(message);
+		FacesMessage facesMessage =  new FacesMessage(JSFUtils.getMessage(key));
 		facesMessage.setSeverity(severity);
 		
         context.addMessage(componentId, facesMessage);  

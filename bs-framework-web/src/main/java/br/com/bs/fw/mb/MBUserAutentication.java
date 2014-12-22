@@ -32,17 +32,17 @@ public abstract class MBUserAutentication extends MBUtil{
 	
 	public void forgot(){
 		if (ObjectUtil.isEmpty(email)) {
-			addErrorMessage("Informe o email do usuário!");
+			addErrorMessage("forgot.txtEmail.required");
 			return;
 		}
 		
 		userBO.forgot(email);
-		addInfoMessage("Email de recuperação enviado com sucesso!");
+		addSuccessMessage("forgot.success");
 	}
 	
 	public void authenticate() throws Exception {
 		if (ObjectUtil.hasEmpty(login.getLogin(), login.getSenha())) {
-			addErrorMessage("Informe o Login e Senha!!!");
+			addErrorMessage("fw.authentic.required");
 			return;
 		}
 
@@ -52,7 +52,7 @@ public abstract class MBUserAutentication extends MBUtil{
 			onLoginSuccess();
 		} else {
 			login.setSenha(null);
-			addErrorMessage("Login ou Senha  não conferem!\nVerifique os dados informados");
+			addErrorMessage("fw.authentic.invalid");
 		}
 	}
 	
@@ -161,7 +161,7 @@ public abstract class MBUserAutentication extends MBUtil{
 		
 		changePassword = new ChangePassword();
 		
-		addInfoMessage("fw.passwordChange.success");
+		addSuccessMessage("fw.passwordChange.success");
 	}
 	
 	public User getCurrentUser() {

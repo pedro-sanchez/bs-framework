@@ -92,10 +92,10 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 		bo.save(entity);
 
 		if(WindowModeEnum.NEW.equals(this.mode)){
-			addInfoMessage("Registro criado com sucesso...");
+			addSuccessMessage("fw.insert.success");
 		}
 		else if(WindowModeEnum.EDIT.equals(this.mode)){
-			addInfoMessage("Registro alterado com sucesso...");
+			addSuccessMessage("fw.update.success");
 		}
 	}
 	
@@ -110,9 +110,8 @@ public abstract class MBGeneric<T extends IEntity, S extends IGenericBO<T>> exte
 	}
 
 	public void delete(){
-		System.out.println("apagando...");
 		bo.delete(selectedID);
-		addInfoMessage("Registro removido com sucesso...");
+		addSuccessMessage("fw.delete.success");
 		list();
 	}
 	

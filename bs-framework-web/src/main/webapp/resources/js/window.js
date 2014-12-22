@@ -44,7 +44,14 @@ function onSaveComplete(data) {
 
 function onSuccessCloseModal(data) {
 	if (data.status == "success") {
-		closeModalJSF();
+		var str=data.responseText;
+		var index=str.indexOf("class=\"error\"");
+		if(index == -1){
+			closeModalJSF();
+		}
+		else{
+			readyMessage();
+		}
 		return false;
 	}
 }
