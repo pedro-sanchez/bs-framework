@@ -50,6 +50,17 @@ function onUpdateUserOptionsComplete(data) {
 	}
 }
 
+
+function onLogin(data) {
+	if (data.status == "success") {
+		if(jQuery('[id*="firstAcess"]').val() == "true"){
+			openModalJSF('changePassword.xhtml');
+		}
+		return false;
+	}
+}
+
+
 function userOptions(){
 	var contentId = $('.popover-user-a').attr('data-content-id');
 	$('.popover-user-a').popover({

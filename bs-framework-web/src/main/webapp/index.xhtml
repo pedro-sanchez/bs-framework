@@ -30,6 +30,8 @@
 	
 	<h:body>
 		<h:panelGroup layout="block" id="mainDiv">
+			
+			<h:inputHidden id="firstAcess" value="#{mbSession.firstAcess}"/>	
 			<ui:include src="#{mbSession.currentStage}"/>
 		</h:panelGroup>
 		
@@ -45,7 +47,7 @@
 		
 			<h:inputHidden id="modalUrl" value="#{mbSession.currentModalURL}"/>			
 			<h:inputHidden id="data" value="#{mbSession.oldModalData}"/>			
-			<h:inputHidden id="field" value="#{mbSession.oldModalField}"/>	
+			<h:inputHidden id="field" value="#{mbSession.oldModalField}"/>		
 		
 		</h:form>
 		

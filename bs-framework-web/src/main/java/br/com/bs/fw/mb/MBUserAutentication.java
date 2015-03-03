@@ -27,8 +27,10 @@ public abstract class MBUserAutentication extends MBUtil{
 	private ChangePassword changePassword = new ChangePassword();
 	
 	private String email = "";
-	
+
 	private User currentUser = null;
+	
+	private Boolean firstAcess = Boolean.FALSE;
 	
 	public void forgot(){
 		if (ObjectUtil.isEmpty(email)) {
@@ -49,6 +51,7 @@ public abstract class MBUserAutentication extends MBUtil{
 		currentUser = userBO.findByLoginAndSenha(login.getLogin(),login.getSenha());
 		if (!ObjectUtil.isEmpty(currentUser)) {
 			addCookie();
+			firstAcess = currentUser.getFirstAccess();
 			onLoginSuccess();
 		} else {
 			login.setSenha(null);
@@ -199,4 +202,14 @@ public abstract class MBUserAutentication extends MBUtil{
 	public void setChangePassword(ChangePassword changePassword) {
 		this.changePassword = changePassword;
 	}
+
+	public Boolean getFirstAcess() {
+		return firstAcess;
+	}
+
+	public void setFirstAcess(Boolean firstAcess) {
+		this.firstAcess = firstAcess;
+	}
+	
+	
 }
