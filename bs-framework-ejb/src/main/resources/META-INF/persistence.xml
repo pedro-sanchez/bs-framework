@@ -7,7 +7,7 @@
 
            <provider>org.hibernate.ejb.HibernatePersistence</provider>
 
-           <jta-data-source>java:/restaurante</jta-data-source>
+           <jta-data-source>java:/clinica</jta-data-source>
 <!--                 <jta-data-source>jdbc/_planoGoverno</jta-data-source> -->
 
                 <class>br.com.bs.sistema.entity.Estado</class>
